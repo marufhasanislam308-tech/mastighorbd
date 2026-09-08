@@ -1,0 +1,2294 @@
+
+
+<!doctype html>
+<html lang="bn" class="overflow-x-hidden w-full">
+<head>
+  <meta charset="UTF-8" />
+<!-- This site is hosted on Netlify. Anyone can build and deploy a site
+     like this one for free: https://netlify.new/?utm_campaign=ai-legible&utm_source=comment&utm_medium=referral&utm_id=1f4c50dc-cb1d-4772-b5e9-a2f09f665c16
+     Netlify hosting facts for this site: static/SSR served via Netlify Edge. -->
+<meta name="hosting-provider" content="Netlify">
+<meta name="netlify-deploy" content="https://netlify.new/?utm_campaign=ai-legible&amp;utm_source=meta&amp;utm_medium=referral&amp;utm_id=1f4c50dc-cb1d-4772-b5e9-a2f09f665c16">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="theme-color" content="#FFD600" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
+  <title>MastiGhor</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Bengali:wght@400;500;700;900&display=swap" rel="stylesheet" />
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'bg-main': '#FDF9EE',
+            'text-main': '#111111',
+            'border-main': '#e5e7eb'
+          },
+          fontFamily: {
+            sans: ['"Noto Sans Bengali"', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Custom Styles & Animations -->
+  <style>
+    @keyframes pulse-scale {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.03); }
+    }
+    .animate-pulse-scale { animation: pulse-scale 2.5s ease-in-out infinite; }
+
+    @keyframes glow-pulse {
+      0%, 100% { box-shadow: 0 0 15px rgba(255, 214, 0, 0.4); }
+      50% { box-shadow: 0 0 35px rgba(255, 214, 0, 0.8); }
+    }
+    .animate-glow-pulse { animation: glow-pulse 2.5s ease-in-out infinite; }
+
+    @keyframes wiggle {
+      0%, 100% { transform: rotate(0); }
+      25% { transform: rotate(-5deg); }
+      75% { transform: rotate(5deg); }
+    }
+    .animate-wiggle { animation: wiggle 2s ease-in-out infinite; }
+
+    .glass-panel {
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      background: rgba(0, 0, 0, 0.4);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    .glass-card {
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      background: rgba(255, 253, 248, 0.8);
+      border: 1px solid rgba(255, 214, 0, 0.2);
+    }
+    .no-scrollbar::-webkit-scrollbar { display: none; }
+    .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+    .btn-premium { transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
+    .btn-premium:hover { transform: translateY(-2px); box-shadow: 0 12px 25px -5px rgba(255, 214, 0, 0.5); }
+    .btn-premium:active { transform: translateY(1px); }
+    .toast { transition: all 0.3s ease-in-out; }
+  </style>
+  <link rel="preconnect" href="https://tem1fm7tb6riqrzt-83534414040.shopifypreview.com" crossorigin />
+  <link rel="preconnect" href="https://a9bx3a8465xfj7b6-72861843544.shopifypreview.com" crossorigin />
+  <link rel="preconnect" href="https://api.telegram.org" crossorigin />
+  <link rel="preconnect" href="https://firestore.googleapis.com" crossorigin />
+  <link rel="dns-prefetch" href="https://freelogopng.com" />
+  <link rel="dns-prefetch" href="https://upload.wikimedia.org" />
+</head>
+<body class="font-sans antialiased text-slate-900 bg-bg-main overflow-x-hidden w-full">
+  <div id="initial-loader" class="fixed inset-0 bg-[#FDF9EE] z-[9999] flex flex-col items-center justify-center transition-opacity duration-400 ease-in-out pointer-events-none">
+    <div class="relative flex items-center justify-center">
+      <div class="absolute inset-0 bg-[#FFD600] blur-[40px] opacity-40 rounded-full animate-pulse w-24 h-24 m-auto"></div>
+      <div class="w-16 h-16 border-4 border-[#FFD600] border-t-transparent rounded-full animate-spin relative z-10"></div>
+    </div>
+    <p class="mt-6 font-black text-[#111111] tracking-widest text-sm animate-pulse">লোড হচ্ছে...</p>
+  </div>
+
+  <div id="root" class="w-full max-w-full overflow-x-hidden">
+    
+
+    <!-- ========================================== -->
+    <!-- VIEW 1: HOME PAGE                          -->
+    <!-- ========================================== -->
+    <div id="view-home" class="app-view min-h-screen pb-[100px] overflow-x-hidden w-full max-w-full bg-[var(--color-bg-main)]">
+      
+      <!-- Header -->
+      <header class="sticky top-0 z-50 h-[70px] w-full bg-white/90 backdrop-blur-md px-4 sm:px-6 flex items-center justify-between transition-all duration-300 shadow-sm border-b border-slate-100">
+        <div class="max-w-5xl w-full mx-auto w-full flex items-center justify-between">
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 sm:w-11 sm:h-11 rounded-xl bg-gradient-to-tr from-[#0088cc] to-[#29b6f6] flex items-center justify-center text-white shadow-[0_4px_16px_rgba(0,136,204,0.35)] border border-sky-400/30">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 sm:w-6 sm:h-6 text-white"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+            </div>
+            <div class="flex flex-col">
+              <div class="flex items-center gap-1">
+                <span class="text-xl sm:text-2xl font-black text-[#111111] tracking-tight leading-none">Masti<span class="text-[#0088cc]">Ghor</span></span>
+              </div>
+              <span class="text-[11px] sm:text-xs text-slate-500 font-bold tracking-wider uppercase mt-1">Official Group</span>
+            </div>
+          </div>
+          <!-- Top Right Button -->
+          <button onclick="openMyOrder()" class="bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white px-4 sm:px-5 py-2 rounded-xl text-sm sm:text-base font-black shadow-lg shadow-blue-500/30 active:scale-95 transition-all flex items-center gap-2 cursor-pointer border border-blue-400 group relative">
+            <span id="order-badge" class="absolute -top-2 -right-2 bg-red-500 text-white text-[10px] font-black w-5 h-5 rounded-full flex items-center justify-center hidden border-2 border-white shadow-md z-20 transition-transform">0</span>
+            <div class="absolute inset-0 overflow-hidden rounded-xl pointer-events-none">
+              <div class="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700"></div>
+            </div>
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 fill-transparent group-hover:-rotate-12 transition-transform relative z-0"><circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/></svg>
+            <span class="relative z-0">মাই অর্ডার</span>
+          </button>
+        </div>
+      </header>
+
+      <main class="w-full">
+        <!-- Hero Section -->
+        <section class="p-4 sm:p-8 bg-[var(--color-bg-main)] max-w-5xl w-full mx-auto overflow-hidden">
+          <div class="flex flex-wrap justify-center gap-2 mb-6">
+            <div class="inline-flex items-center gap-1.5 bg-white border border-slate-200 px-3 py-1 rounded-full text-[11px] sm:text-xs font-bold text-slate-700 shadow-sm">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-star w-3.5 h-3.5 text-[#FFD600] fill-[#FFD600]"><path d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z"></path></svg>
+              <span>১ নাম্বার প্রিমিয়াম সার্ভিস</span>
+            </div>
+            <div class="inline-flex items-center gap-1.5 bg-white border border-slate-200 px-3 py-1 rounded-full text-[11px] sm:text-xs font-bold text-slate-700 shadow-sm">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-users w-3.5 h-3.5 text-blue-500 fill-blue-500"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path><path d="M16 3.128a4 4 0 0 1 0 7.744"></path><path d="M22 21v-2a4 4 0 0 0-3-3.87"></path><circle cx="9" cy="7" r="4"></circle></svg>
+              <span id="member-counter">২৩,৪১৫+ মেম্বার যুক্ত হয়েছেন</span>
+            </div>
+          </div>
+          
+          <div class="text-center mb-8">
+            <h1 class="text-3xl sm:text-4xl md:text-5xl font-black text-[#111111] tracking-tight leading-tight mb-3">
+              প্রিমিয়াম <br class="sm:hidden" />
+              <span class="relative inline-block mt-1 sm:mt-0">
+                <span class="relative z-10">প্রাইভেট গ্রুপ</span>
+                <div class="absolute bottom-1 sm:bottom-2 left-0 w-full h-3 sm:h-4 bg-[#FFD600]/40 -z-10 rounded-sm transform -rotate-1"></div>
+              </span>
+            </h1>
+            <p class="text-sm sm:text-base text-gray-600 max-w-xl w-full mx-auto font-medium px-2">
+              কোনো অ্যাপস বা জিপ পাসওয়ার্ডের ঝামেলা ছাড়া সরাসরি টেলিগ্রাম প্রাইভেট গ্রুপ এক্সেস নিন।
+            </p>
+          </div>
+
+          <!-- Hero Image (Fixed) -->
+          <div onclick="startCheckout('single')" class="relative w-full h-[200px] sm:h-[400px] rounded-3xl overflow-hidden bg-slate-100 shadow-[0_20px_50px_-12px_rgba(0,0,0,0.15)] border border-slate-200 mb-8 cursor-pointer">
+            <img id="hero-img" fetchpriority="high" decoding="async" src="https://tem1fm7tb6riqrzt-83534414040.shopifypreview.com/cdn/shop/files/photo_2026-08-17_16-29-22.jpg?v=1786962583&width=832" class="absolute inset-0 w-full h-full object-cover object-center z-10" alt="Premium Package"/>
+            
+            <div class="absolute top-4 left-4 z-30">
+              <div class="glass-panel px-3 py-1.5 rounded-full flex items-center gap-1.5 text-xs font-bold text-[#111111] bg-white/90 shadow-sm"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-lock w-3.5 h-3.5 text-green-600"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg><span class="hidden sm:inline">১০০% প্রাইভেট</span><span class="sm:hidden">প্রাইভেট</span></div>
+            </div>
+            <div class="absolute bottom-4 right-4 z-30">
+              <div class="glass-panel px-3 py-1.5 rounded-full flex items-center gap-1.5 text-xs font-bold text-[#111111] bg-white/90 shadow-sm"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-circle-check-big w-3.5 h-3.5 text-blue-600"><path d="M21.801 10A10 10 0 1 1 17 3.335"></path><path d="m9 11 3 3L22 4"></path></svg><span class="hidden sm:inline">আজীবন এক্সেস</span><span class="sm:hidden">এক্সেস</span></div>
+            </div>
+          </div>
+          <!-- Single Package Button with 18+ Label -->
+          <div class="max-w-md mx-auto relative z-10">
+            <button onclick="startCheckout('single')" class="relative w-full group overflow-hidden rounded-2xl animate-pulse-scale cursor-pointer btn-premium">
+              <div class="absolute inset-0 bg-gradient-to-r from-[#FFD600] via-[#FFEA75] to-[#FFD600] opacity-100 group-hover:opacity-80 transition-opacity"></div>
+              <div class="relative w-full min-h-[56px] sm:min-h-[64px] px-6 py-4 flex items-center justify-center gap-2 border-2 border-[#FFD600] rounded-2xl bg-[#FFD600] hover:bg-[#FFEA75] active:scale-[0.98] text-[#111111] font-black text-lg sm:text-xl shadow-lg transition-all duration-300 group">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6 fill-[#111111]"><path d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z"></path></svg>
+                <span id="home-single-btn-text">প্রিমিয়াম গ্রুপ - ৳৯৯ মাত্র</span>
+              </div>
+            </button>
+
+        </section>
+
+        <!-- Combo Pack Section -->
+        <section class="bg-[#FFFDF8] py-8 px-4 sm:px-6 border-y border-[#FFD600]/20 max-w-5xl w-full mx-auto my-6 relative overflow-hidden">
+          <div class="absolute top-0 right-0 w-64 h-64 bg-[#FFD600]/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2"></div>
+          <div class="absolute bottom-0 left-0 w-64 h-64 bg-[#FFD600]/5 rounded-full blur-3xl translate-y-1/2 -translate-x-1/2"></div>
+          
+          <div class="text-center mb-8 relative z-10">
+            <h2 class="text-3xl sm:text-4xl font-black text-[#111111] tracking-tight">প্রিমিয়াম <span class="text-[#DC2626]">কম্বো</span> প্যাক</h2>
+            <div class="h-1 w-20 bg-[#FFD600] mx-auto mt-4 mb-4 rounded-full"></div>
+            <p class="text-sm sm:text-base text-gray-700 max-w-xl w-full mx-auto font-medium leading-relaxed">
+              সম্পূর্ণ ৪০ জিবি প্রিমিয়াম কালেকশন - কোন ঝামেলা ছাড়া সরাসরি টেলিগ্রাম প্রাইভেট গ্রুপ এক্সেস নিন।
+            </p>
+          </div>
+
+          <!-- Combo Image (Fixed) -->
+          <div onclick="startCheckout('bundle')" class="relative w-full h-[200px] sm:h-[400px] rounded-3xl overflow-hidden bg-slate-100 shadow-[0_20px_50px_-12px_rgba(0,0,0,0.15)] border border-slate-200 mb-8 cursor-pointer relative z-10">
+            <img id="combo-img" loading="lazy" decoding="async" src="https://tem1fm7tb6riqrzt-83534414040.shopifypreview.com/cdn/shop/files/photo_2026-08-17_16-29-25.jpg?v=1786962583&width=832" class="absolute inset-0 w-full h-full object-cover object-center z-10" alt="Combo Bundle Package"/>
+          </div>
+          
+          <div class="max-w-xl w-full mx-auto text-center mb-8 relative z-10">
+            <p class="text-sm sm:text-base font-bold text-[#111111] leading-relaxed glass-card p-5 rounded-2xl">
+              এই এক্সক্লুসিভ প্যাকেজে আপনি পাচ্ছেন সমস্ত প্রিমিয়াম গ্রুপের সরাসরি এক্সেস, যেখানে রয়েছে ১৮,০০০ এরও বেশি হাই-কোয়ালিটি ভিডিও।
+            </p>
+          </div>
+          
+          <div id="countdown-container" class="max-w-sm mx-auto mb-6 mt-4 bg-white/80 backdrop-blur border border-slate-200 rounded-2xl p-5 shadow-sm text-center relative overflow-hidden">
+            <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-[#FFD600] to-transparent"></div>
+            <div class="flex justify-center items-center gap-2 mb-3">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-timer w-5 h-5 text-slate-800"><line x1="10" x2="14" y1="2" y2="2"></line><line x1="12" x2="15" y1="14" y2="11"></line><circle cx="12" cy="14" r="8"></circle></svg>
+              <span class="text-sm font-bold text-slate-800 uppercase tracking-wide">কম্বো অফারটি শেষ হতে বাকি:</span>
+            </div>
+            <div class="flex justify-center gap-3">
+              <div class="flex flex-col items-center">
+                <div id="cd-hours" class="w-12 h-12 bg-[#111111] rounded-xl flex items-center justify-center text-white font-mono text-xl font-bold shadow-inner">02</div>
+                <span class="text-[10px] font-bold text-slate-500 mt-1 uppercase">Hours</span>
+              </div>
+              <span class="text-2xl font-bold text-[#111111] self-start mt-2">:</span>
+              <div class="flex flex-col items-center">
+                <div id="cd-mins" class="w-12 h-12 bg-[#111111] rounded-xl flex items-center justify-center text-white font-mono text-xl font-bold shadow-inner">45</div>
+                <span class="text-[10px] font-bold text-slate-500 mt-1 uppercase">Mins</span>
+              </div>
+              <span class="text-2xl font-bold text-[#111111] self-start mt-2">:</span>
+              <div class="flex flex-col items-center">
+                <div id="cd-secs" class="w-12 h-12 bg-[#FFD600] rounded-xl flex items-center justify-center text-[#111111] font-mono text-xl font-black shadow-inner">30</div>
+                <span class="text-[10px] font-bold text-slate-500 mt-1 uppercase">Secs</span>
+              </div>
+            </div>
+          </div>
+          <!-- Bundle Package Button -->
+          <div class="max-w-md mx-auto relative z-10 mt-6">
+            <button onclick="startCheckout('bundle')" class="relative w-full group overflow-hidden rounded-2xl animate-pulse-scale cursor-pointer btn-premium">
+              <div class="absolute inset-0 bg-gradient-to-r from-[#FFD600] via-[#FFEA75] to-[#FFD600] opacity-100 group-hover:opacity-80 transition-opacity"></div>
+              <div class="relative w-full min-h-[56px] sm:min-h-[64px] px-6 py-4 flex items-center justify-center gap-2 border-2 border-[#FFD600] rounded-2xl bg-[#FFD600] hover:bg-[#FFEA75] active:scale-[0.98] text-[#111111] font-black text-lg sm:text-xl shadow-lg transition-all duration-300 group">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 fill-[#111111]"><path d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z"></path></svg>
+                <span id="home-bundle-btn-text">কম্বো প্যাকেজ ৳299 <span class="line-through text-sm opacity-70 ml-1">৳594</span></span>
+              </div>
+            </button>
+          </div>
+        </section>
+
+        <!-- Plans & Timer Section -->
+        <section class="py-10 px-4 sm:px-6 bg-[var(--color-bg-main)] max-w-5xl w-full mx-auto">
+          
+          
+          <div class="text-center mb-8">
+            <h2 class="text-2xl sm:text-3xl md:text-4xl font-black text-[#111111] tracking-tight">আমাদের মেম্বারশিপ প্ল্যান</h2>
+            <div class="h-1 w-24 bg-[#FFD600] mx-auto mt-4 mb-3 rounded-full"></div>
+            <p class="text-sm sm:text-base font-medium text-slate-600">আপনার পছন্দের প্যাকেজটি সিলেক্ট করে ইনস্ট্যান্ট এক্সেস নিন</p>
+          </div>
+          
+          <div class="max-w-sm sm:max-w-md mx-auto relative rounded-2xl overflow-hidden shadow-lg border border-slate-200 bg-white">
+            <div id="plan-slider" class="flex overflow-x-auto snap-x snap-mandatory no-scrollbar scroll-smooth">
+              <div class="w-full flex-shrink-0 snap-center relative">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent z-10 pointer-events-none"></div>
+                <img loading="lazy" decoding="async" src="https://i.pinimg.com/736x/58/e1/33/58e1331a24031c7ea4dea7db9250a4d6.jpg" class="w-full h-auto object-cover blur-[2px] hover:blur-none transition-all duration-300"/>
+              </div>
+              <div class="w-full flex-shrink-0 snap-center relative">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent z-10 pointer-events-none"></div>
+                <img loading="lazy" decoding="async" src="https://i.pinimg.com/736x/50/7b/cf/507bcf2e07e70d0324d5ea7cbfc28938.jpg" class="w-full h-auto object-cover blur-[2px] hover:blur-none transition-all duration-300"/>
+              </div>
+              <div class="w-full flex-shrink-0 snap-center relative">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent z-10 pointer-events-none"></div>
+                <img loading="lazy" decoding="async" src="https://i.pinimg.com/736x/85/fa/92/85fa9237a1319cfa768ac838a02c3659.jpg" class="w-full h-auto object-cover blur-[2px] hover:blur-none transition-all duration-300"/>
+              </div>
+              <div class="w-full flex-shrink-0 snap-center relative">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent z-10 pointer-events-none"></div>
+                <img loading="lazy" decoding="async" src="https://i.pinimg.com/736x/07/ee/99/07ee995e4f0bf1eeabff8e8855a5c654.jpg" class="w-full h-auto object-cover blur-[2px] hover:blur-none transition-all duration-300"/>
+              </div>
+              <div class="w-full flex-shrink-0 snap-center relative">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent z-10 pointer-events-none"></div>
+                <img loading="lazy" decoding="async" src="https://i.pinimg.com/736x/82/3a/dd/823adda1ac964e53ea9ae07814502801.jpg" class="w-full h-auto object-cover blur-[2px] hover:blur-none transition-all duration-300"/>
+              </div>
+              <div class="w-full flex-shrink-0 snap-center relative">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent z-10 pointer-events-none"></div>
+                <img loading="lazy" decoding="async" src="https://i.pinimg.com/736x/33/77/74/3377747b20bc42d5eed48ac32d895d0c.jpg" class="w-full h-auto object-cover blur-[2px] hover:blur-none transition-all duration-300"/>
+              </div>
+            </div>
+            <div id="plan-dots" class="absolute bottom-4 left-0 right-0 flex justify-center gap-2 z-20">
+              <div class="h-2 rounded-full transition-all duration-300 w-6 bg-[#FFD600]"></div>
+              <div class="h-2 rounded-full transition-all duration-300 w-2 bg-white/50"></div>
+              <div class="h-2 rounded-full transition-all duration-300 w-2 bg-white/50"></div>
+              <div class="h-2 rounded-full transition-all duration-300 w-2 bg-white/50"></div>
+              <div class="h-2 rounded-full transition-all duration-300 w-2 bg-white/50"></div>
+              <div class="h-2 rounded-full transition-all duration-300 w-2 bg-white/50"></div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Benefits Section -->
+        <section class="bg-[var(--color-bg-main)] py-10 px-4 sm:px-6 max-w-5xl w-full mx-auto border-t border-[var(--color-border-main)]">
+          <div class="text-center mb-12">
+            <div class="inline-flex items-center gap-1 text-xs font-bold text-[#111111] bg-[#FFD600]/20 px-4 py-1.5 rounded-full border border-[#FFD600]/50 mb-3 uppercase tracking-wide">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-sparkles w-4 h-4"><path d="M11.017 2.814a1 1 0 0 1 1.966 0l1.051 5.558a2 2 0 0 0 1.594 1.594l5.558 1.051a1 1 0 0 1 0 1.966l-5.558 1.051a2 2 0 0 0-1.594 1.594l-1.051 5.558a1 1 0 0 1-1.966 0l-1.051-5.558a2 2 0 0 0-1.594-1.594l-5.558-1.051a1 1 0 0 1 0-1.966l5.558-1.051a2 2 0 0 0 1.594-1.594z"></path><path d="M20 2v4"></path><path d="M22 4h-4"></path><circle cx="4" cy="20" r="2"></circle></svg>
+              <span>প্রিমিয়াম সুবিধা</span>
+            </div>
+            <h2 class="text-2xl sm:text-3xl md:text-4xl font-black text-[#111111] tracking-tight">কেন আমাদের মেম্বারশিপ বেছে নেবেন?</h2>
+            <div class="h-1 w-20 bg-[#FFD600] mx-auto mt-4 rounded-full"></div>
+          </div>
+          
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div class="group relative bg-[#FFFDF8] border-2 border-slate-100 rounded-3xl p-6 hover:border-[#FFD600] transition-all duration-300 shadow-sm hover:shadow-[0_15px_45px_-10px_rgba(255,214,0,0.45)] flex flex-col justify-between overflow-hidden cursor-default">
+              <div class="absolute top-0 right-0 w-32 h-32 bg-[#FFD600]/10 rounded-bl-full -mr-16 -mt-16 group-hover:scale-125 group-hover:bg-[#FFD600]/25 transition-all duration-500"></div>
+              <div class="relative z-10 flex flex-col items-start gap-4">
+                <div class="w-14 h-14 flex-shrink-0 bg-[#FFD600] rounded-2xl flex items-center justify-center shadow-inner transform group-hover:scale-110 group-hover:rotate-3 group-hover:bg-[#FFEA75] transition-all duration-300">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-rocket w-7 h-7 text-[#111111] transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"></path><path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"></path><path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"></path><path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"></path></svg>
+                </div>
+                <div>
+                  <h3 class="text-lg font-black text-[#111111] mb-2 leading-tight group-hover:text-amber-900 transition-colors duration-300">প্রতিদিন নতুন এইচডি ভিডিও</h3>
+                  <p class="text-sm font-medium text-slate-600 leading-relaxed">গ্রুপে নিয়মিত অটোমেটেড নতুন কন্টেন্ট আপলোড করা হয়, ফলে নতুন ভিডিওর জন্য আপনাকে অপেক্ষা করতে হবে না।</p>
+                </div>
+              </div>
+            </div>
+            <div class="group relative bg-[#FFFDF8] border-2 border-slate-100 rounded-3xl p-6 hover:border-[#FFD600] transition-all duration-300 shadow-sm hover:shadow-[0_15px_45px_-10px_rgba(255,214,0,0.45)] flex flex-col justify-between overflow-hidden cursor-default">
+              <div class="absolute top-0 right-0 w-32 h-32 bg-[#FFD600]/10 rounded-bl-full -mr-16 -mt-16 group-hover:scale-125 group-hover:bg-[#FFD600]/25 transition-all duration-500"></div>
+              <div class="relative z-10 flex flex-col items-start gap-4">
+                <div class="w-14 h-14 flex-shrink-0 bg-[#FFD600] rounded-2xl flex items-center justify-center shadow-inner transform group-hover:scale-110 group-hover:-rotate-3 group-hover:bg-[#FFEA75] transition-all duration-300">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-download w-7 h-7 text-[#111111] transition-transform duration-300 group-hover:translate-y-0.5"><path d="M12 15V3"></path><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><path d="m7 10 5 5 5-5"></path></svg>
+                </div>
+                <div>
+                  <h3 class="text-lg font-black text-[#111111] mb-2 leading-tight group-hover:text-amber-900 transition-colors duration-300">হাই-স্পিড অনলাইন ড্রাইভ</h3>
+                  <p class="text-sm font-medium text-slate-600 leading-relaxed">কোনো পাসওয়ার্ড বা পাসকোড ছাড়াই ১-ক্লিকে যেকোনো ফাইল অনলাইনে প্লে অথবা সরাসরি ডাউনলোড করুন।</p>
+                </div>
+              </div>
+            </div>
+            <div class="group relative bg-[#FFFDF8] border-2 border-slate-100 rounded-3xl p-6 hover:border-[#FFD600] transition-all duration-300 shadow-sm hover:shadow-[0_15px_45px_-10px_rgba(255,214,0,0.45)] flex flex-col justify-between overflow-hidden cursor-default">
+              <div class="absolute top-0 right-0 w-32 h-32 bg-[#FFD600]/10 rounded-bl-full -mr-16 -mt-16 group-hover:scale-125 group-hover:bg-[#FFD600]/25 transition-all duration-500"></div>
+              <div class="relative z-10 flex flex-col items-start gap-4">
+                <div class="w-14 h-14 flex-shrink-0 bg-[#FFD600] rounded-2xl flex items-center justify-center shadow-inner transform group-hover:scale-110 group-hover:rotate-3 group-hover:bg-[#FFEA75] transition-all duration-300">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-zap w-7 h-7 text-[#111111] fill-[#FFD600]/50 transition-transform duration-300 group-hover:scale-110"><path d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z"></path></svg>
+                </div>
+                <div>
+                  <h3 class="text-lg font-black text-[#111111] mb-2 leading-tight group-hover:text-amber-900 transition-colors duration-300">ইনস্ট্যান্ট অটো-এক্সেস সাপোর্ট</h3>
+                  <p class="text-sm font-medium text-slate-600 leading-relaxed">পেমেন্ট সম্পন্ন করার সাথে সাথে স্ক্রিনে সাকসেস মেসেজ ও টেলিগ্রাম প্রাইভেট গ্রুপ জয়েন করার লিংক পেয়ে যাবেন।</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section class="bg-bg-main py-12 px-4 sm:px-6 relative overflow-hidden border-t border-[var(--color-border-main)]">
+          <div class="max-w-2xl w-full mx-auto relative z-10">
+            <div class="text-center mb-10">
+              <div class="inline-flex items-center gap-1.5 text-xs font-bold text-[#111111] bg-[#FFD600]/20 px-4 py-1.5 rounded-full border border-[#FFD600]/50 mb-3 uppercase tracking-wide">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-circle-question-mark w-4 h-4 text-[#111111]"><circle cx="12" cy="12" r="10"></circle><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path><path d="M12 17h.01"></path></svg>
+                <span>সাধারণ প্রশ্ন উত্তর (FAQ)</span>
+              </div>
+              <h2 class="text-2xl sm:text-3xl md:text-4xl font-black text-[#111111] tracking-tight">সচরাচর জিজ্ঞাসিত প্রশ্নসমূহ</h2>
+            </div>
+            
+            <div class="space-y-4" id="faq-container">
+              <!-- FAQ 1 -->
+              <div class="bg-white border-2 rounded-2xl overflow-hidden transition-colors duration-300 shadow-sm border-[#FFD600] faq-item">
+                <button onclick="toggleFaq(this)" class="w-full text-left p-5 flex items-center justify-between gap-4 text-sm sm:text-base font-bold text-[#111111] cursor-pointer hover:bg-slate-50 transition-colors bg-slate-50">
+                  <span class="leading-snug">টাকা পাঠানোর পর প্রাইভেট লিঙ্ক কিভাবে পাব?</span>
+                  <div class="w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 transition-colors bg-[#FFD600] faq-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-down w-5 h-5 text-[#111111] transition-transform duration-300 rotate-180"><path d="m6 9 6 6 6-6"></path></svg>
+                  </div>
+                </button>
+                <div class="faq-content">
+                  <div class="px-5 pb-5 pt-2 text-sm text-slate-600 leading-relaxed bg-white font-medium">
+                    <div class="w-8 h-1 bg-[#FFD600] rounded-full mb-3"></div>
+                    টাকা পাঠিয়ে আপনার সেন্ডার মোবাইল নম্বর ও ট্রানজেকশন আইডি (TrxID) ফর্মে সাবমিট করা মাত্রই পেজ রিফ্রেশ হয়ে সরাসরি সাকসেস লিঙ্ক দেখাবে। এছাড়া স্ক্রিনে দেখতে পাওয়া জয়েন টেলিগ্রাম বাটনে ক্লিক করলেই ইনস্ট্যান্ট অটো-এক্সেস পেয়ে যাবেন।
+                  </div>
+                </div>
+              </div>
+
+              <!-- FAQ 2 -->
+              <div class="bg-white border-2 rounded-2xl overflow-hidden transition-colors duration-300 shadow-sm border-slate-100 hover:border-[#FFD600]/30 faq-item">
+                <button onclick="toggleFaq(this)" class="w-full text-left p-5 flex items-center justify-between gap-4 text-sm sm:text-base font-bold text-[#111111] cursor-pointer hover:bg-slate-50 transition-colors">
+                  <span class="leading-snug">সম্পূর্ণ কম্বো প্যাকের আনলিমিটেড ভিডিওগুলো কীভাবে ডাউনলোড করব?</span>
+                  <div class="w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 transition-colors bg-slate-100 faq-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-down w-5 h-5 text-[#111111] transition-transform duration-300"><path d="m6 9 6 6 6-6"></path></svg>
+                  </div>
+                </button>
+                <div class="faq-content hidden">
+                  <div class="px-5 pb-5 pt-2 text-sm text-slate-600 leading-relaxed bg-white font-medium">
+                    <div class="w-8 h-1 bg-[#FFD600] rounded-full mb-3"></div>
+                    পেমেন্ট করার পর টেলিগ্রাম প্রাইভেট গ্রুপে জয়েন হওয়ার লিংক পাবেন, সেখানে সব ফাইল সুন্দরভাবে সাজানো আছে। আপনি চাইলে সরাসরি দেখতে পারেন অথবা যেকোনো ডিভাইসে ডাউনলোড করে অফলাইনেও দেখতে পারবেন।
+                  </div>
+                </div>
+              </div>
+
+              <!-- FAQ 3 -->
+              <div class="bg-white border-2 rounded-2xl overflow-hidden transition-colors duration-300 shadow-sm border-slate-100 hover:border-[#FFD600]/30 faq-item">
+                <button onclick="toggleFaq(this)" class="w-full text-left p-5 flex items-center justify-between gap-4 text-sm sm:text-base font-bold text-[#111111] cursor-pointer hover:bg-slate-50 transition-colors">
+                  <span class="leading-snug">আমার পরিচয় বা নম্বর কি গোপন থাকবে?</span>
+                  <div class="w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 transition-colors bg-slate-100 faq-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 text-[#111111] transition-transform duration-300"><path d="m6 9 6 6 6-6"></path></svg>
+                  </div>
+                </button>
+                <div class="faq-content hidden">
+                  <div class="px-5 pb-5 pt-2 text-sm text-slate-600 leading-relaxed bg-white font-medium">
+                    <div class="w-8 h-1 bg-[#FFD600] rounded-full mb-3"></div>
+                    জি, ১০০% গোপন থাকবে। আমাদের সিস্টেম সম্পূর্ণ সিকিউর এবং প্রাইভেট। আপনার কোনো তথ্য বা পরিচয় অন্য কেউ দেখতে পাবে না।
+                  </div>
+                </div>
+              </div>
+
+              <!-- FAQ 4 -->
+              <div class="bg-white border-2 rounded-2xl overflow-hidden transition-colors duration-300 shadow-sm border-slate-100 hover:border-[#FFD600]/30 faq-item">
+                <button onclick="toggleFaq(this)" class="w-full text-left p-5 flex items-center justify-between gap-4 text-sm sm:text-base font-bold text-[#111111] cursor-pointer hover:bg-slate-50 transition-colors">
+                  <span class="leading-snug">পেমেন্ট করার সময় সমস্যা হলে কোথায় যোগাযোগ করব?</span>
+                  <div class="w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 transition-colors bg-slate-100 faq-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 text-[#111111] transition-transform duration-300"><path d="m6 9 6 6 6-6"></path></svg>
+                  </div>
+                </button>
+                <div class="faq-content hidden">
+                  <div class="px-5 pb-5 pt-2 text-sm text-slate-600 leading-relaxed bg-white font-medium">
+                    <div class="w-8 h-1 bg-[#FFD600] rounded-full mb-3"></div>
+                    যে কোনো সমস্যার জন্য আমাদের টেলিগ্রাম সাপোর্ট বট অথবা হোয়াটসঅ্যাপ নম্বরে যোগাযোগ করতে পারেন। আমাদের সাপোর্ট টিম দ্রুত আপনার সমস্যার সমাধান করে দেবে।
+                  </div>
+                </div>
+              </div>
+
+              <!-- FAQ 5 -->
+              <div class="bg-white border-2 rounded-2xl overflow-hidden transition-colors duration-300 shadow-sm border-slate-100 hover:border-[#FFD600]/30 faq-item">
+                <button onclick="toggleFaq(this)" class="w-full text-left p-5 flex items-center justify-between gap-4 text-sm sm:text-base font-bold text-[#111111] cursor-pointer hover:bg-slate-50 transition-colors">
+                  <span class="leading-snug">ভিডিওগুলো কি সব ডিভাইসে সাপোর্ট করবে?</span>
+                  <div class="w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 transition-colors bg-slate-100 faq-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-down w-5 h-5 text-[#111111] transition-transform duration-300"><path d="m6 9 6 6 6-6"></path></svg>
+                  </div>
+                </button>
+                <div class="faq-content hidden">
+                  <div class="px-5 pb-5 pt-2 text-sm text-slate-600 leading-relaxed bg-white font-medium">
+                    <div class="w-8 h-1 bg-[#FFD600] rounded-full mb-3"></div>
+                    হ্যাঁ, মোবাইল, কম্পিউটার, বা ল্যাপটপ যেকোনো ডিভাইসে আপনি ভিডিওগুলো খুব সহজেই দেখতে এবং ডাউনলোড করতে পারবেন।
+                  </div>
+                </div>
+              </div>
+
+              <!-- FAQ 6 -->
+              <div class="bg-white border-2 rounded-2xl overflow-hidden transition-colors duration-300 shadow-sm border-slate-100 hover:border-[#FFD600]/30 faq-item">
+                <button onclick="toggleFaq(this)" class="w-full text-left p-5 flex items-center justify-between gap-4 text-sm sm:text-base font-bold text-[#111111] cursor-pointer hover:bg-slate-50 transition-colors">
+                  <span class="leading-snug">এক্সেস কতদিনের জন্য থাকবে?</span>
+                  <div class="w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 transition-colors bg-slate-100 faq-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-down w-5 h-5 text-[#111111] transition-transform duration-300"><path d="m6 9 6 6 6-6"></path></svg>
+                  </div>
+                </button>
+                <div class="faq-content hidden">
+                  <div class="px-5 pb-5 pt-2 text-sm text-slate-600 leading-relaxed bg-white font-medium">
+                    <div class="w-8 h-1 bg-[#FFD600] rounded-full mb-3"></div>
+                    এটি একটি লাইফটাইম এক্সেস মেম্বারশিপ। একবার পেমেন্ট করলে আপনি আজীবন প্রিমিয়াম গ্রুপে যুক্ত থাকতে পারবেন এবং রেগুলার আপডেট পাবেন।
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <!-- Float Support Icons -->
+      <div class="fixed bottom-24 right-4 z-40 flex flex-col gap-4 items-end" id="floating-support-container">
+        <div id="float-messenger-wrapper" class="group relative hidden">
+          <a id="float-messenger" href="#" target="_blank" rel="noopener noreferrer" class="flex items-center justify-center transition-transform hover:scale-110 active:scale-90 cursor-pointer animate-wiggle drop-shadow-xl rounded-full">
+            <svg class="w-14 h-14" viewBox="0 0 128 128" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path fill-rule="evenodd" clip-rule="evenodd" d="M64 12C35.28 12 12 33.725 12 60.522C12 75.807 19.824 89.431 31.785 98.243V116L49.697 106.12C54.214 107.411 58.995 108.114 64 108.114C92.72 108.114 116 86.388 116 59.591C116 32.795 92.72 12 64 12Z" fill="#0084FF"/>
+              <path fill-rule="evenodd" clip-rule="evenodd" d="M26.425 76.541L45.438 46.223C47.884 42.325 53.308 41.258 57.172 43.914L71.492 53.763L90.817 44.153C93.754 42.693 96.906 45.894 95.342 48.751L76.329 79.069C73.882 82.968 68.458 84.034 64.595 81.379L50.274 71.53L30.949 81.14C28.012 82.601 24.86 79.399 26.425 76.541Z" fill="white"/>
+              
+            </svg>
+          </a>
+          <div class="absolute right-full top-1/2 -translate-y-1/2 mr-3 opacity-0 group-hover:opacity-100 transition-opacity bg-slate-800 text-white text-xs font-bold px-3 py-1.5 rounded-lg whitespace-nowrap shadow-lg pointer-events-none">মেসেঞ্জার সাপোর্ট</div>
+        </div>
+
+        <div id="float-telegram-wrapper" class="group relative hidden">
+          <a id="float-telegram" href="#" target="_blank" rel="noopener noreferrer" class="flex items-center justify-center transition-transform hover:scale-110 active:scale-90 cursor-pointer animate-wiggle drop-shadow-xl rounded-full">
+            <svg class="w-14 h-14" viewBox="-2.5 -2.5 29 29" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M12 24C18.6274 24 24 18.6274 24 12C24 5.37258 18.6274 0 12 0C5.37258 0 0 5.37258 0 12C0 18.6274 5.37258 24 12 24Z" fill="#2AABEE"/>
+              <path fill-rule="evenodd" clip-rule="evenodd" d="M5.42485 11.875C8.7183 10.4411 10.914 9.49506 12.0118 9.03698C15.148 7.72895 15.7997 7.50242 16.2245 7.49479C16.3179 7.49311 16.5262 7.51634 16.6627 7.62711C16.7779 7.72061 16.8093 7.8465 16.824 7.93489C16.8386 8.02328 16.8568 8.22421 16.8423 8.3813C16.6775 10.1754 15.9654 14.3723 15.6009 16.3093C15.4468 17.1287 15.1444 17.4042 14.8517 17.4308C14.2155 17.4886 13.7317 17.0097 13.1158 16.606C12.1524 15.9745 11.6083 15.5808 10.6727 14.9649C9.59139 14.2533 10.2917 13.8625 10.9088 13.2223C11.0701 13.055 13.8693 10.5103 13.9236 10.2796C13.9303 10.2507 13.9365 10.1432 13.8732 10.0869C13.8099 10.0306 13.7157 10.05 13.6469 10.0655C13.5495 10.0875 12.0003 11.1097 8.99965 13.1368C8.56012 13.4385 8.16104 13.5855 7.80237 13.578C7.40698 13.5698 6.64775 13.3547 6.08417 13.1712C5.39294 12.9463 4.84375 12.8273 4.89163 12.4452C4.91656 12.246 5.1942 12.0468 5.42485 11.875Z" fill="white"/>
+            </svg>
+          </a>
+          <div class="absolute right-full top-1/2 -translate-y-1/2 mr-3 opacity-0 group-hover:opacity-100 transition-opacity bg-slate-800 text-white text-xs font-bold px-3 py-1.5 rounded-lg whitespace-nowrap shadow-lg pointer-events-none">টেলিগ্রাম সাপোর্ট</div>
+        </div>
+      </div>
+
+      <!-- Footer Info -->
+      <footer class="bg-[#111111] text-white pt-10 pb-28 px-4 sm:px-6 relative overflow-hidden mt-8">
+        <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-[#FFD600] to-transparent"></div>
+        <div class="max-w-5xl w-full mx-auto flex flex-col md:flex-row justify-between items-center md:items-start gap-12">
+          <div class="text-center md:text-left max-w-sm">
+            <div class="flex items-center justify-center md:justify-start gap-2.5 mb-5">
+              <div class="w-9 h-9 rounded-xl bg-gradient-to-tr from-[#0088cc] to-[#29b6f6] flex items-center justify-center text-white shadow-[0_4px_16px_rgba(0,136,204,0.35)] border border-sky-400/30">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 text-white"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+              </div>
+              <span class="text-3xl font-black tracking-tighter text-white">Masti<span class="text-[#0088cc]">Ghor</span></span>
+            </div>
+            <p class="text-sm text-slate-400 font-medium leading-relaxed mb-6">
+              বাংলাদেশের সবচেয়ে বিশ্বস্ত এবং প্রিমিয়াম মেম্বারশিপ প্ল্যাটফর্ম। কোনো হ্যাসেল ছাড়াই আনলিমিটেড এন্টারটেইনমেন্ট এখন আপনার হাতের মুঠোয়।
+            </p>
+          </div>
+          <div class="flex flex-col sm:flex-row gap-10 sm:gap-16 text-center md:text-left">
+            <div>
+              <h4 class="text-[#FFD600] font-black mb-5 uppercase tracking-wider text-sm flex items-center justify-center md:justify-start gap-2">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-send w-4 h-4"><path d="M14.536 21.686a.5.5 0 0 0 .937-.024l6.5-19a.496.496 0 0 0-.635-.635l-19 6.5a.5.5 0 0 0-.024.937l7.93 3.18a2 2 0 0 1 1.112 1.11z"></path><path d="m21.854 2.147-10.94 10.939"></path></svg>
+                সাপোর্ট ও যোগাযোগ
+              </h4>
+              <ul class="space-y-4 text-sm text-slate-300 font-medium">
+                <li>
+                  <a id="footer-support" href="https://t.me/mastighorbd" target="_blank" rel="noreferrer" class="hover:text-[#FFD600] transition-colors flex items-center justify-center md:justify-start gap-2.5 group">
+                    <span class="w-6 h-6 rounded-full bg-white/5 flex items-center justify-center group-hover:bg-[#FFD600]/20 transition-colors"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-send w-3 h-3 group-hover:text-[#FFD600]"><path d="M14.536 21.686a.5.5 0 0 0 .937-.024l6.5-19a.496.496 0 0 0-.635-.635l-19 6.5a.5.5 0 0 0-.024.937l7.93 3.18a2 2 0 0 1 1.112 1.11z"></path><path d="m21.854 2.147-10.94 10.939"></path></svg></span>
+                    টেলিগ্রাম সাপোর্ট
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </footer>
+
+      <!-- Bottom Sticky Bar -->
+      <footer class="fixed bottom-0 inset-x-0 bg-white/90 backdrop-blur-xl border-t border-slate-200 px-4 py-3 z-40 shadow-[0_-10px_40px_rgba(0,0,0,0.05)]">
+        <div class="max-w-4xl mx-auto flex items-center justify-between gap-3">
+          <div class="flex flex-col">
+            <div class="flex items-center gap-1.5 mb-0.5">
+              <span class="text-[11px] text-slate-600 font-bold uppercase tracking-wide">সর্বমোট মূল্য:</span>
+              <span class="bg-[#FFD600]/20 border border-[#FFD600] text-[#111111] text-[10px] font-black px-2 py-0.5 rounded-full inline-flex items-center gap-1 shadow-sm">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-flame w-3 h-3 text-[#DC2626] fill-[#DC2626]"><path d="M12 3q1 4 4 6.5t3 5.5a1 1 0 0 1-14 0 5 5 0 0 1 1-3 1 1 0 0 0 5 0c0-2-1.5-3-1.5-5q0-2 2.5-4"></path></svg>৮০% ছাড়
+              </span>
+            </div>
+            <div class="flex items-baseline gap-1.5">
+              <span id="footer-price" class="text-2xl sm:text-3xl font-black text-[#111111] leading-none">৳৯৯</span>
+              <span id="footer-original" class="text-xs text-slate-400 line-through font-bold">৳৪৯৯</span>
+            </div>
+          </div>
+          <div class="flex items-center gap-2">
+            <button onclick="startCheckout('single')" class="group relative overflow-hidden h-[48px] sm:h-[52px] px-6 sm:px-8 rounded-xl bg-[#111111] hover:bg-slate-800 active:scale-95 text-white font-black text-sm sm:text-base shadow-lg border border-slate-900 flex items-center gap-2 cursor-pointer transition-all animate-glow-pulse">
+              <div class="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700"></div>
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-circle-play w-5 h-5 group-hover:scale-110 transition-transform"><path d="M9 9.003a1 1 0 0 1 1.517-.859l4.997 2.997a1 1 0 0 1 0 1.718l-4.997 2.997A1 1 0 0 1 9 14.996z"></path><circle cx="12" cy="12" r="10"></circle></svg>
+              <span>ভিডিও দেখুন</span>
+            </button>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <!-- ========================================== -->
+    <!-- VIEW 2: CHECKOUT PAGE                      -->
+    <!-- ========================================== -->
+    <div id="view-checkout" class="app-view hidden min-h-screen pb-20 bg-slate-50 font-sans overflow-x-hidden w-full max-w-full">
+      <header class="bg-white/90 backdrop-blur-md border-b border-slate-100 sticky top-0 z-30 shadow-sm h-[70px] px-4 sm:px-6 flex items-center transition-all duration-300">
+        <div class="max-w-3xl w-full mx-auto flex items-center justify-between">
+          <div class="flex items-center gap-3 cursor-pointer" onclick="navigateTo('home')">
+            <div class="w-10 h-10 sm:w-11 sm:h-11 rounded-xl bg-gradient-to-tr from-[#0088cc] to-[#29b6f6] flex items-center justify-center text-white shadow-[0_4px_16px_rgba(0,136,204,0.35)] border border-sky-400/30">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 sm:w-6 sm:h-6 text-white"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+            </div>
+            <div class="flex flex-col">
+              <div class="flex items-center gap-1">
+                <span class="text-xl sm:text-2xl font-black text-[#111111] tracking-tight leading-none">Masti<span class="text-[#0088cc]">Ghor</span></span>
+              </div>
+              <span class="text-[11px] sm:text-xs text-slate-500 font-bold tracking-wider uppercase mt-1">Official Group</span>
+            </div>
+          </div>
+          <div onclick="navigateTo('home')" class="flex items-center gap-1.5 cursor-pointer bg-slate-50 hover:bg-slate-100 border border-slate-200 px-3 sm:px-4 py-1.5 sm:py-2 rounded-xl transition-all text-xs sm:text-sm font-bold text-slate-600 active:scale-95">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-3.5 h-3.5 sm:w-4 sm:h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m15 18-6-6 6-6"></path></svg>
+            ফিরে যান
+          </div>
+        </div>
+      </header>
+
+      <div class="bg-white border-b border-slate-200">
+        <div class="max-w-3xl mx-auto px-4 py-4 flex items-center justify-between">
+          <div class="flex flex-col items-center gap-1.5 flex-1">
+            <div class="w-7 h-7 rounded-full bg-[#FFD600] text-[#111111] flex items-center justify-center font-bold text-sm shadow-sm">1</div>
+            <span class="text-[11px] sm:text-xs font-bold text-[#111111]">প্যাকেজ নির্বাচন</span>
+          </div>
+          <div class="h-[2px] bg-slate-200 flex-1 mx-1 sm:mx-2 rounded-full"></div>
+          <div class="flex flex-col items-center gap-1.5 flex-1">
+            <div class="w-7 h-7 rounded-full bg-slate-500 text-white flex items-center justify-center font-bold text-sm shadow-sm">2</div>
+            <span class="text-[11px] sm:text-xs font-medium text-slate-500">পেমেন্ট</span>
+          </div>
+          <div class="h-[2px] bg-slate-200 flex-1 mx-1 sm:mx-2 rounded-full"></div>
+          <div class="flex flex-col items-center gap-1.5 flex-1">
+            <div class="w-7 h-7 rounded-full bg-slate-200 text-slate-500 flex items-center justify-center font-bold text-sm shadow-sm">3</div>
+            <span class="text-[11px] sm:text-xs font-medium text-slate-400">সম্পন্ন</span>
+          </div>
+        </div>
+      </div>
+      
+      <main class="max-w-3xl mx-auto px-4 py-8" id="checkout-content">
+        <!-- Rendered dynamically by JavaScript -->
+      </main>
+    </div>
+
+    <!-- ========================================== -->
+    <!-- VIEW 3: PAYMENT PAGE                       -->
+    <!-- ========================================== -->
+    <div id="view-payment" class="app-view hidden min-h-screen pb-20 bg-[#FDF9EE] font-sans">
+      <header class="bg-white/90 backdrop-blur-md border-b border-slate-100 sticky top-0 z-30 shadow-sm h-[70px] px-4 sm:px-6 flex items-center transition-all duration-300">
+        <div class="max-w-3xl w-full mx-auto flex items-center justify-between">
+          <div class="flex items-center gap-3 cursor-pointer" onclick="navigateTo('home')">
+            <div class="w-10 h-10 sm:w-11 sm:h-11 rounded-xl bg-gradient-to-tr from-[#0088cc] to-[#29b6f6] flex items-center justify-center text-white shadow-[0_4px_16px_rgba(0,136,204,0.35)] border border-sky-400/30">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 sm:w-6 sm:h-6 text-white"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+            </div>
+            <div class="flex flex-col">
+              <div class="flex items-center gap-1">
+                <span class="text-xl sm:text-2xl font-black text-[#111111] tracking-tight leading-none">Masti<span class="text-[#0088cc]">Ghor</span></span>
+              </div>
+              <span class="text-[11px] sm:text-xs text-slate-500 font-bold tracking-wider uppercase mt-1">অফিসিয়াল</span>
+            </div>
+          </div>
+          <div onclick="navigateTo('checkout')" class="flex items-center gap-1.5 cursor-pointer bg-slate-50 hover:bg-slate-100 border border-slate-200 px-3 sm:px-4 py-1.5 sm:py-2 rounded-xl transition-all text-xs sm:text-sm font-bold text-slate-600 active:scale-95">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-3.5 h-3.5 sm:w-4 sm:h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m15 18-6-6 6-6"></path></svg>
+            ফিরে যান
+          </div>
+        </div>
+      </header>
+
+      <div class="bg-[#FDF9EE] pt-8 pb-4">
+        <div class="max-w-md mx-auto px-4 flex items-center justify-center">
+          <div class="w-8 h-8 rounded-full border-2 border-[#1A8B5F] text-[#1A8B5F] flex items-center justify-center shrink-0">
+            <svg width="14" height="10" viewBox="0 0 14 10" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 5L4.5 8.5L13 1" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+          </div>
+          <div class="w-12 border-b-2 border-dashed border-[#1A8B5F] mx-2"></div>
+          <div class="w-8 h-8 rounded-full border-2 border-[#111111] text-[#111111] font-bold flex items-center justify-center shrink-0 text-sm">2</div>
+          <div class="w-12 border-b-2 border-dashed border-[#D5D2C1] mx-2"></div>
+          <div class="w-8 h-8 rounded-full border-2 border-[#D5D2C1] text-[#D5D2C1] font-bold flex items-center justify-center shrink-0 text-sm">3</div>
+        </div>
+      </div>
+      
+      <main class="max-w-xl w-full mx-auto px-4 pt-4" id="payment-content">
+        <!-- Rendered dynamically by JavaScript -->
+      </main>
+    </div>
+
+    <!-- ========================================== -->
+    <!-- VIEW: MY ORDER PAGE                        -->
+    <!-- ========================================== -->
+    <div id="view-my-order" class="app-view hidden min-h-screen bg-slate-50 font-sans overflow-x-hidden w-full max-w-full">
+      <header class="bg-white border-b border-slate-200 sticky top-0 z-30 shadow-sm">
+        <div class="max-w-3xl mx-auto px-4 h-16 flex items-center justify-between">
+          <div class="flex items-center gap-2">
+            <span class="font-black text-lg text-slate-800">আমার অর্ডারসমূহ</span>
+          </div>
+          <div onclick="navigateTo('home')" class="flex items-center gap-1.5 cursor-pointer hover:bg-slate-100 bg-slate-50 px-3.5 py-2 rounded-xl border border-slate-200 transition-colors text-sm font-bold text-slate-600">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m15 18-6-6 6-6"></path></svg>
+            ফিরে যান
+          </div>
+        </div>
+      </header>
+      <main class="max-w-3xl mx-auto p-4 sm:p-6" id="my-order-content">
+        <!-- Content will be injected via JS -->
+      </main>
+    </div>
+
+    <!-- ========================================== -->
+    <!-- VIEW 4: SUCCESS PAGE                       -->
+    <!-- ========================================== -->
+    <div id="view-success" class="app-view hidden min-h-screen pb-20 bg-[#FDF9EE] font-sans">
+      <header class="bg-white/90 backdrop-blur-md border-b border-slate-100 sticky top-0 z-30 shadow-sm h-[70px] px-4 sm:px-6 flex items-center transition-all duration-300">
+        <div class="max-w-3xl w-full mx-auto flex items-center justify-between">
+          <div class="flex items-center gap-3 cursor-pointer" onclick="navigateTo('home')">
+            <div class="w-10 h-10 sm:w-11 sm:h-11 rounded-xl bg-gradient-to-tr from-[#0088cc] to-[#29b6f6] flex items-center justify-center text-white shadow-[0_4px_16px_rgba(0,136,204,0.35)] border border-sky-400/30">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 sm:w-6 sm:h-6 text-white"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+            </div>
+            <div class="flex flex-col">
+              <div class="flex items-center gap-1">
+                <span class="text-xl sm:text-2xl font-black text-[#111111] tracking-tight leading-none">Masti<span class="text-[#0088cc]">Ghor</span></span>
+              </div>
+              <span class="text-[11px] sm:text-xs text-slate-500 font-bold tracking-wider uppercase mt-1">Official Group</span>
+            </div>
+          </div>
+          
+        </div>
+      </header>
+
+      <div class="bg-[#FDF9EE] pt-8 pb-4">
+        <div class="max-w-md mx-auto px-4 flex items-center justify-center">
+          <div class="w-8 h-8 rounded-full border-2 border-[#1A8B5F] text-[#1A8B5F] flex items-center justify-center shrink-0"><svg width="14" height="10" viewBox="0 0 14 10" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 5L4.5 8.5L13 1" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg></div>
+          <div class="w-12 border-b-2 border-dashed border-[#1A8B5F] mx-2"></div>
+          <div class="w-8 h-8 rounded-full border-2 border-[#1A8B5F] text-[#1A8B5F] flex items-center justify-center shrink-0"><svg width="14" height="10" viewBox="0 0 14 10" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 5L4.5 8.5L13 1" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg></div>
+          <div class="w-12 border-b-2 border-dashed border-[#1A8B5F] mx-2"></div>
+          <div class="w-8 h-8 rounded-full bg-[#111111] text-[#FFD600] font-bold flex items-center justify-center shrink-0 text-sm">3</div>
+        </div>
+      </div>
+      
+      <main class="max-w-xl w-full mx-auto px-4 text-center mt-6" id="success-content">
+        <!-- Rendered dynamically by JavaScript -->
+      </main>
+    </div>
+
+  <!-- ========================================== -->
+  <!-- FIREBASE SDKS & JAVASCRIPT LOGIC           -->
+  <!-- ========================================== -->
+  <script src="https://www.gstatic.com/firebasejs/10.8.1/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.8.1/firebase-firestore-compat.js"></script>
+
+  <script>
+
+    // -------------------------
+    // TOAST NOTIFICATION
+    // -------------------------
+    window.showToast = function(message, type = 'success') {
+      let container = document.getElementById('toast-container');
+      if (!container) {
+        container = document.createElement('div');
+        container.id = 'toast-container';
+        container.className = 'fixed top-4 right-4 z-50 flex flex-col gap-2';
+        document.body.appendChild(container);
+      }
+      const toast = document.createElement('div');
+      const bg = type === 'success' ? 'bg-green-500' : 'bg-red-500';
+      toast.className = `toast ${bg} text-white px-5 py-3 rounded-lg shadow-lg font-bold text-sm transform translate-x-full opacity-0 transition-all duration-300`;
+      toast.innerText = message;
+      container.appendChild(toast);
+      
+      setTimeout(() => { toast.classList.remove('translate-x-full', 'opacity-0'); }, 10);
+      setTimeout(() => {
+        toast.classList.add('translate-x-full', 'opacity-0');
+        setTimeout(() => toast.remove(), 300);
+      }, 3000);
+    };
+
+    // -------------------------
+    // COPY TO CLIPBOARD LOGIC
+    // -------------------------
+    window.copyText = function(btn, text) {
+        navigator.clipboard.writeText(text).then(() => {
+            const originalHTML = btn.innerHTML;
+            btn.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="inline mb-[1px] mr-1"><path d="M20 6 9 17l-5-5"></path></svg>কপি হয়েছে`;
+            btn.classList.add("bg-green-100", "text-green-700", "border-green-300");
+            btn.classList.remove("bg-[#F0EEE5]", "text-[#1A8B5F]", "border-[#D5D2C1]");
+            setTimeout(() => {
+                btn.innerHTML = originalHTML;
+                btn.classList.remove("bg-green-100", "text-green-700", "border-green-300");
+                btn.classList.add("bg-[#F0EEE5]", "text-[#1A8B5F]", "border-[#D5D2C1]");
+            }, 2000);
+        }).catch(err => {
+            showToast("কপি করতে সমস্যা হয়েছে!", "error");
+        });
+    };
+
+    // -------------------------
+    // 1. Firebase Configuration
+    // -------------------------
+    const firebaseConfig = {
+      apiKey: "AIzaSyC8IQDDJvRgwHH_1aQzXibdtKSznN6bgJs",
+      authDomain: "teligram-project-bd.firebaseapp.com",
+      projectId: "teligram-project-bd",
+      storageBucket: "teligram-project-bd.firebasestorage.app",
+      messagingSenderId: "1079582221004",
+      appId: "1:1079582221004:web:ffd1a081f929b9e07fd869"
+    };
+
+    if (!firebase.apps.length) firebase.initializeApp(firebaseConfig);
+    const db = firebase.firestore();
+    db.settings({ experimentalAutoDetectLongPolling: true, merge: true });
+
+    // -------------------------
+    // 2. Application State
+    // -------------------------
+    const state = {
+      currency: "৳",
+      priceSingle: 99,
+      priceBundle: 299,
+      bkash: "",
+      botToken: "",
+      chatId: "",
+      supportLink: "https://t.me/mastighorbd",
+      messengerLink: "",
+      showFloatingTelegram: true,
+      showFloatingMessenger: false,
+      showScreenshot: false,
+      heroImage: '',
+      comboImage: '',
+      categories: [],
+
+      // Order flow state
+      packageType: 'single', 
+      selectedCategories: [],
+      totalAmount: 0,
+      paymentMethod: 'bkash',
+      trxId: '',
+      orderId: '',
+      customerName: '',
+      phone: '',
+      telegramUsername: ''
+    };
+
+    // -------------------------
+    // 3. Fixed Local Settings
+    // -------------------------
+    // This copy no longer reads the site owner's "settings/general" document.
+    // Changes made in their admin/settings will therefore not overwrite this page.
+    function listenToSettings() {
+      state.currency = "৳";
+      state.priceSingle = 99;
+      state.priceBundle = 299;
+      state.bkash = '01353205582';
+      state.botToken = '';
+      state.chatId = '';
+      state.supportLink = 'https://t.me/mastighorbd';
+      state.messengerLink = '';
+      state.showFloatingTelegram = true;
+      state.showFloatingMessenger = false;
+      state.showScreenshot = false;
+      state.heroImage = 'https://tem1fm7tb6riqrzt-83534414040.shopifypreview.com/cdn/shop/files/photo_2026-08-17_16-29-22.jpg?v=1786962583&width=832';
+      state.comboImage = 'https://tem1fm7tb6riqrzt-83534414040.shopifypreview.com/cdn/shop/files/photo_2026-08-17_16-29-25.jpg?v=1786962583&width=832';
+      state.categories = [
+        { id: "cat1", name: "বাচ্চাদের ভিডিও" }, { id: "cat2", name: "ধর্ষণ ভিডিও" },
+        { id: "cat3", name: "বাংলা ভিডিও" }, { id: "cat4", name: "ইংরেজি ভিডিও" },
+        { id: "cat5", name: "কোরিয়ান ভিডিও" }, { id: "cat6", name: "ওয়েব সিরিজ" }
+      ];
+      updateStaticUI();
+    }
+
+    function updateStaticUI() {
+      const loader = document.getElementById('initial-loader');
+      if (loader && loader.parentNode) {
+        loader.style.opacity = '0';
+        setTimeout(() => { if (loader.parentNode) loader.remove(); }, 400);
+      }
+
+      document.getElementById('footer-price').innerText = state.currency + state.priceSingle;
+      document.getElementById('footer-original').innerText = state.currency + (state.priceSingle * 5);
+      
+            
+      const singleBtnText = document.getElementById('home-single-btn-text');
+      if (singleBtnText) {
+        singleBtnText.innerText = `প্রিমিয়াম গ্রুপ - ${state.currency}${state.priceSingle} মাত্র`;
+      }
+      
+      const comboBtnText = document.getElementById('home-bundle-btn-text');
+      if (comboBtnText) {
+        comboBtnText.innerHTML = `কম্বো প্যাকেজ ${state.currency}${state.priceBundle} <span class="line-through text-sm opacity-70 ml-1">${state.currency}${state.priceSingle * (state.categories.length > 0 ? state.categories.length : 6)}</span>`;
+      }
+
+      const floatTelegram = document.getElementById('float-telegram');
+      const floatTelegramWrap = document.getElementById('float-telegram-wrapper');
+      if (floatTelegram && floatTelegramWrap) {
+          floatTelegram.href = state.supportLink;
+          if (state.showFloatingTelegram && state.supportLink) {
+              floatTelegramWrap.classList.remove('hidden');
+          } else {
+              floatTelegramWrap.classList.add('hidden');
+          }
+      }
+
+      const floatMessenger = document.getElementById('float-messenger');
+      const floatMessengerWrap = document.getElementById('float-messenger-wrapper');
+      if (floatMessenger && floatMessengerWrap) {
+          floatMessenger.href = state.messengerLink;
+          if (state.showFloatingMessenger && state.messengerLink) {
+              floatMessengerWrap.classList.remove('hidden');
+          } else {
+              floatMessengerWrap.classList.add('hidden');
+          }
+      }
+
+      const footerTelegram = document.getElementById('footer-support');
+      if (footerTelegram) {
+          footerTelegram.href = state.supportLink;
+          if (state.supportLink) footerTelegram.classList.remove('hidden');
+          else footerTelegram.classList.add('hidden');
+      }
+      
+      const footerMessenger = document.getElementById('footer-messenger');
+      if (footerMessenger) {
+          footerMessenger.href = state.messengerLink;
+          if (state.messengerLink) footerMessenger.classList.remove('hidden');
+          else footerMessenger.classList.add('hidden');
+      }
+    }
+
+        function getSupportButtonsHtml(fullWidth = false, size = "large") {
+        let html = '';
+        const baseClass = fullWidth ? "w-full" : "shrink-0";
+        const paddingClass = size === "large" ? "py-3.5 px-6" : "py-3 px-5";
+        const textSize = size === "large" ? "text-base" : "text-sm";
+        const wrapperClass = fullWidth ? "flex flex-col gap-3 w-full" : "flex flex-wrap gap-2";
+        
+        html += `<div class="${wrapperClass}">`;
+        
+        const btnClasses = `${baseClass} bg-white text-slate-800 border border-slate-200 hover:bg-slate-50 hover:border-slate-300 font-black ${textSize} ${paddingClass} rounded-xl shadow-sm flex items-center justify-center gap-3 transition-all cursor-pointer`;
+
+        if (state.messengerLink) {
+            html += `<a href="${state.messengerLink}" target="_blank" class="${btnClasses}">
+                        <svg class="w-6 h-6 drop-shadow-sm" viewBox="12 12 104 104" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <path fill-rule="evenodd" clip-rule="evenodd" d="M64 12C35.28 12 12 33.725 12 60.522C12 75.807 19.824 89.431 31.785 98.243V116L49.697 106.12C54.214 107.411 58.995 108.114 64 108.114C92.72 108.114 116 86.388 116 59.591C116 32.795 92.72 12 64 12Z" fill="#0084FF"/>
+                          <path fill-rule="evenodd" clip-rule="evenodd" d="M26.425 76.541L45.438 46.223C47.884 42.325 53.308 41.258 57.172 43.914L71.492 53.763L90.817 44.153C93.754 42.693 96.906 45.894 95.342 48.751L76.329 79.069C73.882 82.968 68.458 84.034 64.595 81.379L50.274 71.53L30.949 81.14C28.012 82.601 24.86 79.399 26.425 76.541Z" fill="white"/>
+                          
+                        </svg>
+                        FB Messenger
+                     </a>`;
+        }
+        
+        if (state.supportLink) {
+            html += `<a href="${state.supportLink}" target="_blank" class="${btnClasses}">
+                        <svg class="w-6 h-6 drop-shadow-sm" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <path d="M12 24C18.6274 24 24 18.6274 24 12C24 5.37258 18.6274 0 12 0C5.37258 0 0 5.37258 0 12C0 18.6274 5.37258 24 12 24Z" fill="#2AABEE"/>
+                          <path fill-rule="evenodd" clip-rule="evenodd" d="M5.42485 11.875C8.7183 10.4411 10.914 9.49506 12.0118 9.03698C15.148 7.72895 15.7997 7.50242 16.2245 7.49479C16.3179 7.49311 16.5262 7.51634 16.6627 7.62711C16.7779 7.72061 16.8093 7.8465 16.824 7.93489C16.8386 8.02328 16.8568 8.22421 16.8423 8.3813C16.6775 10.1754 15.9654 14.3723 15.6009 16.3093C15.4468 17.1287 15.1444 17.4042 14.8517 17.4308C14.2155 17.4886 13.7317 17.0097 13.1158 16.606C12.1524 15.9745 11.6083 15.5808 10.6727 14.9649C9.59139 14.2533 10.2917 13.8625 10.9088 13.2223C11.0701 13.055 13.8693 10.5103 13.9236 10.2796C13.9303 10.2507 13.9365 10.1432 13.8732 10.0869C13.8099 10.0306 13.7157 10.05 13.6469 10.0655C13.5495 10.0875 12.0003 11.1097 8.99965 13.1368C8.56012 13.4385 8.16104 13.5855 7.80237 13.578C7.40698 13.5698 6.64775 13.3547 6.08417 13.1712C5.39294 12.9463 4.84375 12.8273 4.89163 12.4452C4.91656 12.246 5.1942 12.0468 5.42485 11.875Z" fill="white"/>
+                        </svg>
+                        Telegram
+                     </a>`;
+        }
+        
+        html += `</div>`;
+        return html;
+    }
+
+    // -------------------------
+    // 4. Navigation & Flow
+    // -------------------------
+    
+    async function openMyOrder() {
+        navigateTo('my-order');
+        renderMyOrdersList();
+    }
+
+    function renderMyOrdersList() {
+        const container = document.getElementById('my-order-content');
+        if (!state.myOrders || state.myOrders.length === 0) {
+            renderEmptyOrderState();
+            return;
+        }
+
+        let html = '<div class="space-y-4 max-w-2xl mx-auto mt-6">';
+        state.myOrders.forEach(order => {
+            const dateStr = new Date(order.createdAt).toLocaleString("bn-BD", { day: "numeric", month: "short", hour: "numeric", minute: "numeric", hour12: true });
+
+            let statusHtml = '';
+            let contentHtml = '';
+
+            if (order.status === 'approved') {
+                statusHtml = `<span class="bg-green-100 text-green-700 px-3 py-1 rounded-full text-xs font-bold border border-green-200">✅ অ্যাপ্রুভড</span>`;
+
+                let links = '';
+                if (order.package === 'bundle' && order.approvedBundleLink) {
+                    links = `<a href="${order.approvedBundleLink}" target="_blank" class="block w-full bg-green-50 text-green-700 border border-green-200 text-center py-2.5 rounded-lg font-bold mt-3 hover:bg-green-100 transition">ভিআইপি গ্রুপে জয়েন করুন</a>`;
+                } else if (order.approvedCategoryLinks && order.approvedCategoryLinks.length > 0) {
+                    links = '<div class="mt-3 space-y-2">';
+                    order.approvedCategoryLinks.forEach(cat => {
+                        links += `<a href="${cat.link}" target="_blank" class="flex justify-between items-center w-full bg-blue-50 text-blue-700 border border-blue-200 py-2.5 px-4 rounded-lg font-bold hover:bg-blue-100 transition"><span>${cat.name}</span><svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a>`;
+                    });
+                    links += '</div>';
+                }
+
+                contentHtml = `
+                    <div class="mt-4 pt-4 border-t border-slate-100">
+                        <p class="text-sm font-bold text-slate-700 mb-2">আপনার প্যাকেজ লিংক:</p>
+                        ${links}
+                    </div>
+                `;
+            } else if (order.status === 'rejected') {
+                statusHtml = `<span class="bg-red-100 text-red-700 px-3 py-1 rounded-full text-xs font-bold border border-red-200">❌ বাতিল</span>`;
+                contentHtml = `
+                    <div class="mt-4 pt-4 border-t border-slate-100">
+                        <p class="text-sm text-red-600 bg-red-50 p-3 rounded-lg border border-red-100">আপনার অর্ডারটি বাতিল করা হয়েছে। সঠিক তথ্য দিয়ে আবার চেষ্টা করুন অথবা সাপোর্টে যোগাযোগ করুন।</p>
+                    </div>
+                `;
+            } else {
+                statusHtml = `<span class="bg-yellow-100 text-yellow-700 px-3 py-1 rounded-full text-xs font-bold border border-yellow-200 animate-pulse">⏳ পেন্ডিং...</span>`;
+                contentHtml = `
+                    <div class="mt-4 pt-4 border-t border-slate-100">
+                        <p class="text-sm text-yellow-700 bg-yellow-50 p-3 rounded-lg border border-yellow-100 text-center">আপনার পেমেন্ট যাচাই করা হচ্ছে। অনুগ্রহ করে অপেক্ষা করুন।</p>
+                    </div>
+                `;
+            }
+
+            html += `
+                <div class="bg-white rounded-2xl p-5 shadow-sm border border-slate-200 hover:shadow-md transition-shadow relative overflow-hidden">
+                    <div class="flex justify-between items-start mb-2">
+                        <div>
+                            <p class="text-[11px] text-slate-400 font-bold tracking-wider mb-1">ORDER #${order.orderId}</p>
+                            <h3 class="font-black text-slate-800 text-lg">${order.packageTitle || 'প্যাকেজ'}</h3>
+                        </div>
+                        ${statusHtml}
+                    </div>
+                    <div class="flex items-center gap-4 text-sm text-slate-500 font-medium mb-1">
+                        <div class="flex items-center gap-1.5"><svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/></svg>${state.currency}${order.amount}</div>
+                        <div class="flex items-center gap-1.5"><svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>${dateStr}</div>
+                    </div>
+                    ${contentHtml}
+                </div>
+            `;
+        });
+        html += '</div>';
+        
+        // Add note about 48 hours
+        html += `<p class="text-center text-xs text-slate-400 mt-8 mb-6 font-medium"><svg class="w-3.5 h-3.5 inline mb-0.5 mr-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>আপনার অ্যাক্সেস থাকবে আজীবন (Lifetime), তবে গোপনীয়তা রক্ষার জন্য মাই অর্ডারের হিস্ট্রি ৪৮ ঘণ্টা পর মুছে ফেলা হয়।</p>`;
+
+        container.innerHTML = html;
+    }
+
+    function initOrdersListener() {
+        const deviceId = localStorage.getItem('mg_deviceId');
+        if (!deviceId) return;
+
+        db.collection('orders')
+          .where('deviceId', '==', deviceId)
+          .onSnapshot(snap => {
+              const now = Date.now();
+              const validOrders = [];
+
+              snap.forEach(doc => {
+                  const data = doc.data();
+                  const createdAt = data.createdAt ? data.createdAt.toMillis() : now;
+                  
+                  // Filter out orders older than 48 hours (48 * 60 * 60 * 1000)
+                  if (now - createdAt <= 172800000) {
+                      validOrders.push({ id: doc.id, ...data, createdAt });
+                  }
+              });
+
+              // Sort newest first
+              validOrders.sort((a, b) => b.createdAt - a.createdAt);
+              state.myOrders = validOrders;
+
+              // Update badge
+              const badge = document.getElementById('order-badge');
+              if (badge) {
+                  if (validOrders.length > 0) {
+                      badge.textContent = validOrders.length;
+                      badge.classList.remove('hidden');
+                  } else {
+                      badge.classList.add('hidden');
+                  }
+              }
+
+              // Update view if currently on my-order page
+              const currentView = document.querySelector('.app-view:not(.hidden)')?.id;
+              if (currentView === 'view-my-order') {
+                  renderMyOrdersList();
+              }
+          });
+    }
+
+    function renderEmptyOrderState() {
+        const container = document.getElementById('my-order-content');
+        container.innerHTML = `
+            <div class="bg-white rounded-3xl p-8 text-center shadow-sm border border-slate-200 mt-6 max-w-md mx-auto relative overflow-hidden">
+                <div class="absolute inset-0 bg-gradient-to-b from-blue-50/50 to-transparent pointer-events-none"></div>
+                <div class="w-24 h-24 bg-gradient-to-br from-blue-100 to-blue-50 rounded-full flex items-center justify-center mx-auto mb-6 shadow-inner border border-blue-100 relative z-10">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="w-12 h-12 text-blue-600"><circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/></svg>
+                </div>
+                <h2 class="text-2xl font-black text-slate-800 mb-3 relative z-10 tracking-tight">কোনো অর্ডার নেই!</h2>
+                <p class="text-slate-600 font-medium leading-relaxed mb-8 relative z-10">
+                    আপনি এখনো কোনো প্যাকেজ অর্ডার করেননি।<br><br>
+                    অর্ডার কমপ্লিট হওয়ার পর আপনি <span class="font-bold text-blue-700 bg-blue-50 px-2 py-0.5 rounded">সরাসরি এখান থেকেই</span> আপনার কাঙ্ক্ষিত প্যাকেজের লিংকগুলো পেয়ে যাবেন।
+                </p>
+                <button onclick="navigateTo('home')" class="w-full bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white font-black py-4 rounded-xl shadow-lg shadow-blue-500/30 transition-transform active:scale-95 relative z-10">
+                    নতুন অর্ডার করুন
+                </button>
+            </div>
+        `;
+    }
+
+    
+    
+    function navigateTo(viewId, pushState = true) {
+      if (viewId === 'payment' && !state.totalAmount) {
+          viewId = 'home';
+      }
+
+      if (viewId !== 'success') {
+          const activeStr = localStorage.getItem('activeVerification');
+          if (activeStr) {
+              try {
+                  const activeOrder = JSON.parse(activeStr);
+                  if (Date.now() - activeOrder.timestamp < 5 * 60 * 1000) {
+                      showToast('অনুগ্রহ করে পেমেন্ট ভেরিফাই হওয়া পর্যন্ত অপেক্ষা করুন।', 'error');
+                      return;
+                  } else {
+                      localStorage.removeItem('activeVerification');
+                  }
+              } catch(e) {
+                  localStorage.removeItem('activeVerification');
+              }
+          }
+      }
+
+      document.querySelectorAll('.app-view').forEach(el => el.classList.add('hidden'));
+      const targetView = document.getElementById(`view-${viewId}`);
+      if (targetView) targetView.classList.remove('hidden');
+      window.scrollTo(0, 0);
+
+      if (viewId === 'checkout') renderCheckout();
+      if (viewId === 'payment') renderPayment();
+      if (viewId === 'my-order') renderMyOrdersList();
+      if (viewId === 'success') renderSuccess();
+
+      if (pushState) {
+          const currentUrl = new URL(window.location);
+          currentUrl.searchParams.set('view', viewId);
+          if (viewId === 'checkout' && state.packageType) {
+              currentUrl.searchParams.set('package', state.packageType);
+          } else if (viewId !== 'checkout' && viewId !== 'payment') {
+              currentUrl.searchParams.delete('package');
+          }
+          window.history.pushState({ view: viewId, packageType: state.packageType, selectedCategories: state.selectedCategories }, '', currentUrl.toString());
+      }
+    }
+
+    function startCheckout(type) {
+      state.packageType = type;
+      state.selectedCategories = []; // Reset selections
+      navigateTo('checkout');
+    }
+
+    // -------------------------
+    // 5. Checkout View
+    // -------------------------
+    function toggleCategory(id) {
+      const idx = state.selectedCategories.indexOf(id);
+      if (idx === -1) state.selectedCategories.push(id);
+      else state.selectedCategories.splice(idx, 1);
+      renderCheckout();
+    }
+
+    
+    function getCategoryInfo(name) {
+      return { 
+        icon: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 sm:w-6 sm:h-6 text-slate-700 group-hover:text-[#111111] transition-colors"><path d="M20 20a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.9a2 2 0 0 1-1.69-.9L9.6 3.9A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2Z"/><polygon points="10.5 9 10.5 15 15.5 12" fill="currentColor" stroke="none"/></svg>`,
+        sub: 'ইনস্ট্যান্ট ডেলিভারি • লাইফটাইম এক্সেস'
+      };
+    }
+
+    function renderCheckout() {
+      const container = document.getElementById('checkout-content');
+      const catCount = state.categories && state.categories.length > 0 ? state.categories.length : 6;
+      const originalTotal = state.priceSingle * catCount;
+      const saveAmount = originalTotal > state.priceBundle ? (originalTotal - state.priceBundle) : 0;
+      const savePercent = originalTotal > state.priceBundle ? Math.round(((originalTotal - state.priceBundle) / originalTotal) * 100) : 0;
+      
+      if (state.packageType === 'bundle') {
+        state.totalAmount = state.priceBundle;
+      const btnDisabled = false;
+        container.innerHTML = `
+          <div class="bg-gradient-to-r from-[#111111] to-slate-900 rounded-2xl shadow-lg border border-[#FFD600]/20 p-4 mb-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <div class="flex items-center gap-3 text-white">
+              <div class="w-10 h-10 rounded-full bg-[#FFD600]/10 flex items-center justify-center shrink-0">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="lucide lucide-gift w-5 h-5 text-[#FFD600]"><rect x="3" y="8" width="18" height="4" rx="1"></rect><path d="M12 8v13"></path><path d="M19 12v7a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2v-7"></path><path d="M7.5 8a2.5 2.5 0 0 1 0-5A4.8 8 0 0 1 12 8a4.8 8 0 0 1 4.5-5 2.5 2.5 0 0 1 0 5"></path></svg>
+              </div>
+              <div>
+                <h3 class="font-black text-[#FFD600] text-sm mb-0.5">প্রিমিয়াম বান্ডেল</h3>
+                <p class="text-slate-300 font-medium text-xs sm:text-sm">সবগুলো ${state.categories.length}টি ক্যাটাগরি একসাথে</p>
+              </div>
+            </div>
+          </div>
+          
+          <div class="bg-white rounded-2xl shadow-sm border border-slate-200 p-6 mb-8">
+            <h3 class="font-bold text-[#111111] mb-4">প্যাকেজ বিস্তারিত</h3>
+            <div class="space-y-3 mb-6">
+              ${state.categories.map(cat => `
+                <div class="flex items-center gap-3 text-slate-700 font-medium bg-slate-50 p-3 rounded-lg border border-slate-100">
+                  <svg class="w-5 h-5 text-green-500 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"></path></svg>
+                  <span>${cat.name}</span>
+                </div>
+              `).join('')}
+            </div>
+            <div class="flex items-center justify-between p-4 bg-slate-100 rounded-xl">
+              <span class="font-bold text-slate-600">মোট মূল্য</span>
+              <span class="text-2xl font-black text-[#111111]">${state.currency}${state.totalAmount}</span>
+            </div>
+          </div>
+
+          
+          <!-- Trust Badges -->
+          <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4 mt-8 mb-6 pb-24 sm:pb-4 border-t border-slate-200 pt-6">
+            <div class="flex flex-col items-center text-center gap-1.5">
+              <span class="text-2xl">⚡</span>
+              <span class="font-bold text-[#111111] text-xs">দ্রুত ডেলিভারি</span>
+              <span class="text-[10px] text-slate-500 font-medium">তাত্ক্ষণিক অ্যাক্সেস</span>
+            </div>
+            <div class="flex flex-col items-center text-center gap-1.5">
+              <span class="text-2xl">🛡️</span>
+              <span class="font-bold text-[#111111] text-xs">নিরাপদ পেমেন্ট</span>
+              <span class="text-[10px] text-slate-500 font-medium">শতভাগ নিরাপদ</span>
+            </div>
+            <div class="flex flex-col items-center text-center gap-1.5">
+              <span class="text-2xl">♾️</span>
+              <span class="font-bold text-[#111111] text-xs">লাইফটাইম অ্যাক্সেস</span>
+              <span class="text-[10px] text-slate-500 font-medium">একবার কিনুন, চিরদিন দেখুন</span>
+            </div>
+            <div class="flex flex-col items-center text-center gap-1.5">
+              <span class="text-2xl">🎧</span>
+              <span class="font-bold text-[#111111] text-xs">২৪/৭ সাপোর্ট</span>
+              <span class="text-[10px] text-slate-500 font-medium">যেকোনো সময় সাহায্য</span>
+            </div>
+          </div>
+
+          <!-- Sticky Bottom CTA -->
+          <div class="fixed bottom-0 left-0 right-0 p-4 bg-white border-t border-slate-200 shadow-[0_-15px_30px_rgba(0,0,0,0.08)] z-40 sm:static sm:bg-transparent sm:border-0 sm:shadow-none sm:p-0">
+            <div class="max-w-3xl mx-auto flex flex-col gap-2">
+              <button onclick="navigateTo('payment')" ${btnDisabled ? 'disabled' : ''} class="w-full py-4 px-6 rounded-xl font-black text-lg flex items-center justify-between gap-4 transition-all ${btnDisabled ? 'bg-slate-200 text-slate-400 cursor-not-allowed' : 'bg-[#111111] text-white shadow-xl hover:bg-slate-900 active:scale-95 cursor-pointer'}">
+                <span class="flex-1 text-center">${btnDisabled ? 'ক্যাটাগরি নির্বাচন করুন' : `Continue to Payment • ${state.currency}${state.totalAmount}`}</span>
+                <div class="w-8 h-8 rounded-full ${btnDisabled ? 'bg-slate-300' : 'bg-[#FFD600]'} text-[#111111] flex items-center justify-center shrink-0">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" class="w-4 h-4"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
+                </div>
+              </button>
+              <div class="flex items-center justify-center gap-1.5 text-slate-500">
+                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-3.5 h-3.5"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                <span class="text-[10px] font-medium tracking-wide">আপনার তথ্য সম্পূর্ণ গোপন রাখা হবে</span>
+              </div>
+            </div>
+          </div>
+        `;
+      } else {
+        state.totalAmount = state.selectedCategories.length * state.priceSingle;
+        const btnDisabled = state.selectedCategories.length === 0;
+
+        let catsHtml = state.categories.map((cat, idx) => {
+          const isSel = state.selectedCategories.includes(cat.id);
+          const num = String(idx + 1).padStart(2, '0');
+          const catInfo = getCategoryInfo(cat.name);
+          return `
+            <button onclick="toggleCategory('${cat.id}')" class="group relative p-3 sm:p-4 rounded-2xl border-2 text-left transition-all duration-300 flex items-center justify-between gap-3 sm:gap-4 cursor-pointer overflow-hidden ${isSel ? "border-[#FFD600] bg-[#FFFDF8] shadow-md" : "border-slate-200 bg-white hover:border-[#FFD600]/50 hover:shadow-sm"}">
+              ${isSel ? '<div class="absolute inset-0 bg-gradient-to-r from-[#FFD600]/10 to-transparent pointer-events-none"></div>' : ''}
+              <div class="flex items-center gap-3 sm:gap-4 relative z-10 w-full">
+                <div class="w-10 h-10 sm:w-12 sm:h-12 rounded-full flex items-center justify-center font-black text-xs sm:text-sm transition-colors shrink-0 ${isSel ? "bg-[#FFD600] text-[#111111] shadow-inner" : "bg-slate-100 text-slate-400 group-hover:bg-[#FFD600]/20 group-hover:text-[#111111]"}">
+                  ${num}
+                </div>
+                <div class="flex flex-col flex-1">
+                  <div class="flex items-center gap-2">
+                    <span class="text-lg sm:text-xl">${catInfo.icon}</span>
+                    <span class="font-bold text-base sm:text-lg transition-colors ${isSel ? "text-[#111111]" : "text-slate-700 group-hover:text-[#111111]"}">${cat.name}</span>
+                  </div>
+                  <span class="text-[11px] sm:text-xs text-slate-500 font-medium mt-0.5">${catInfo.sub}</span>
+                </div>
+              </div>
+              <div class="w-6 h-6 sm:w-7 sm:h-7 rounded-full flex items-center justify-center border-2 shrink-0 transition-all relative z-10 ${isSel ? "bg-[#FFD600] border-[#FFD600] text-[#111111] scale-110" : "border-slate-200 text-transparent group-hover:border-slate-300"}">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="w-3.5 h-3.5 sm:w-4 sm:h-4"><path d="M20 6 9 17l-5-5"></path></svg>
+              </div>
+            </button>
+          `;
+        }).join('');
+
+        let selectedHtml = '';
+        if(state.selectedCategories.length > 0) {
+          selectedHtml = `
+            <div class="bg-[#FFFDF8] rounded-2xl shadow-sm border border-[#FFD600]/30 p-5 sm:p-6 mb-8 mt-8">
+              <div class="flex items-center justify-between mb-4 border-b border-[#FFD600]/20 pb-3">
+                <div class="flex items-center gap-2">
+                  <span class="text-xl">🧾</span>
+                  <h3 class="font-bold text-[#111111] text-lg">আপনার অর্ডার</h3>
+                </div>
+                <button onclick="state.selectedCategories=[]; renderCheckout();" class="text-sm text-slate-500 font-bold hover:text-red-500 hover:underline cursor-pointer flex items-center gap-1.5 transition-colors">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-4 h-4"><path d="M3 6h18"/><path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6"/><path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"/></svg>
+                  নির্বাচন মুছুন
+                </button>
+              </div>
+              <div class="space-y-2 mb-4">
+                <div class="flex items-center justify-between">
+                  <span class="text-slate-600 font-medium text-sm">নির্বাচিত ক্যাটাগরি</span>
+                  <span class="font-bold text-[#111111] text-sm">${state.selectedCategories.length}টি</span>
+                </div>
+                <div class="flex items-center justify-between">
+                  <span class="text-slate-600 font-medium text-sm">প্রতি ক্যাটাগরির মূল্য</span>
+                  <span class="font-bold text-[#111111] text-sm">${state.currency}${state.priceSingle}</span>
+                </div>
+              </div>
+              <div class="flex items-center justify-between pt-3 border-t border-[#FFD600]/20">
+                <span class="font-bold text-[#111111] text-base">মোট পরিমাণ</span>
+                <span class="text-2xl font-black text-[#FFD600] drop-shadow-sm">${state.currency}${state.totalAmount}</span>
+              </div>
+            </div>
+          `;
+        }
+
+        container.innerHTML = `
+          
+          
+          <div class="relative bg-gradient-to-b from-[#1c1c1c] to-[#000000] rounded-2xl shadow-[0_10px_40px_rgba(255,214,0,0.15)] border border-[#FFD600]/30 p-5 sm:p-6 mb-6 overflow-hidden">
+            <!-- Glow -->
+            <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[150%] h-[150px] bg-[#FFD600]/15 blur-[60px] pointer-events-none rounded-[100%]"></div>
+
+            <!-- Corner SAVE Badge -->
+            <div class="absolute top-0 right-0 bg-gradient-to-bl from-red-600 to-red-800 text-white shadow-lg rounded-bl-2xl px-3 sm:px-4 py-2 sm:py-2.5 border-b border-l border-red-500/30 z-20 flex flex-col items-center justify-center">
+              <span class="text-[9px] sm:text-[10px] font-black leading-none tracking-widest uppercase opacity-90 mb-0.5">Save</span>
+              <span class="text-sm sm:text-base font-black leading-none">${savePercent > 0 ? savePercent + '%' : 'OFF'}</span>
+            </div>
+
+            <!-- Content Container -->
+            <div class="relative z-10 flex flex-col gap-3.5 sm:gap-4">
+              
+              <!-- Top Badges -->
+              <div class="flex flex-wrap items-center gap-2 mt-1 mb-1.5">
+                <div class="inline-flex items-center justify-center gap-1.5 bg-[#FFD600] px-2.5 py-1 sm:py-1.5 rounded-md shadow-sm">
+                  <span class="text-[11px] sm:text-xs leading-none flex items-center">👑</span>
+                  <span class="text-[11px] sm:text-xs font-black text-[#111111] uppercase tracking-wide leading-none pt-[2px]">স্পেশাল অফার</span>
+                </div>
+                <div class="inline-flex items-center justify-center bg-[#222] border border-[#FFD600]/30 px-2.5 py-1 sm:py-1.5 rounded-md shadow-sm">
+                  <span class="text-[11px] sm:text-xs font-black text-[#FFD600] uppercase tracking-wider leading-none pt-[2px]">LIMITED TIME</span>
+                </div>
+              </div>
+              
+              <!-- Headline -->
+              <div class="flex flex-col pr-12">
+                <h2 class="text-[20px] sm:text-[26px] font-black text-white leading-tight tracking-tight">${catCount}টি ক্যাটাগরি, একটাই অফার!</h2>
+                <h2 class="text-[20px] sm:text-[26px] font-black text-[#FFD600] leading-tight tracking-tight mt-1">আজ মাত্র ${state.currency}${state.priceBundle}</h2>
+              </div>
+              
+              <!-- Features -->
+              <div class="flex flex-wrap items-center gap-x-3 sm:gap-x-4 gap-y-1.5 sm:gap-y-2 text-slate-300 text-[11px] sm:text-[13px] font-medium">
+                <div class="flex items-center gap-1 sm:gap-1.5">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="w-3 h-3 sm:w-3.5 sm:h-3.5 text-[#FFD600]"><path d="M20 6 9 17l-5-5"></path></svg>
+                  <span>${catCount}টি ক্যাটাগরি</span>
+                </div>
+                <div class="flex items-center gap-1 sm:gap-1.5">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="w-3 h-3 sm:w-3.5 sm:h-3.5 text-[#FFD600]"><path d="M20 6 9 17l-5-5"></path></svg>
+                  <span>১ বার পেমেন্ট</span>
+                </div>
+                <div class="flex items-center gap-1 sm:gap-1.5">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="w-3 h-3 sm:w-3.5 sm:h-3.5 text-[#FFD600]"><path d="M20 6 9 17l-5-5"></path></svg>
+                  <span>লাইফটাইম অ্যাক্সেস</span>
+                </div>
+              </div>
+              
+              <!-- CTA Button -->
+              <div class="w-full mt-1.5 sm:mt-2">
+                <button onclick="startCheckout('bundle')" class="w-full bg-gradient-to-r from-[#FFD600] to-[#FACC15] hover:from-[#FACC15] hover:to-[#EAB308] text-black px-4 py-3 sm:py-3.5 rounded-xl font-black text-[15px] sm:text-lg shadow-[0_4px_15px_rgba(255,214,0,0.25)] active:scale-[0.98] transition-all flex items-center justify-center gap-2 cursor-pointer border-b-[3px] border-[#C27803] active:border-b-0 active:translate-y-[3px]">
+                  <span class="text-lg sm:text-xl -mt-0.5">🎁</span>
+                  <span>${saveAmount > 0 ? `${state.currency}${saveAmount} অফ • ` : ''}${state.currency}${state.priceBundle} অফারটি নিন</span>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 sm:w-5 sm:h-5"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                </button>
+              </div>
+            </div>
+            </div>
+          </div>
+
+          <!-- Divider -->
+          <div class="flex items-center gap-4 mb-8 max-w-sm mx-auto">
+            <div class="h-px bg-slate-200 flex-1"></div>
+            <span class="text-xs font-bold text-slate-400 tracking-wider">অথবা</span>
+            <div class="h-px bg-slate-200 flex-1"></div>
+          </div>
+
+          <div class="mb-8">
+            <div class="flex items-center gap-3 mb-2">
+              <div class="w-10 h-10 bg-[#FFD600]/10 rounded-xl flex items-center justify-center shrink-0">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="lucide lucide-list-checks w-5 h-5 text-[#111111]"><path d="m3 17 2 2 4-4"></path><path d="m3 7 2 2 4-4"></path><path d="M13 6h8"></path><path d="M13 12h8"></path><path d="M13 18h8"></path></svg>
+              </div>
+              <div>
+                <h2 class="text-lg sm:text-xl font-black text-[#111111] leading-tight">আপনার পছন্দের ক্যাটাগরি বেছে নিন</h2>
+                <p class="text-slate-500 text-[11px] sm:text-xs font-medium">এক বা একাধিক ক্যাটাগরি সিলেক্ট করুন। প্রতিটি ক্যাটাগরির মূল্য মাত্র ${state.currency}${state.priceSingle}।</p>
+              </div>
+            </div>
+            <div class="h-4"></div>
+            <div class="flex flex-col gap-3">
+              ${catsHtml}
+            </div>
+          </div>
+
+          ${selectedHtml}
+
+          <div class="fixed bottom-0 left-0 right-0 p-4 bg-white border-t border-slate-200 shadow-[0_-10px_20px_rgba(0,0,0,0.05)] z-40 sm:static sm:bg-transparent sm:border-0 sm:shadow-none sm:p-0">
+            <button onclick="navigateTo('payment')" ${btnDisabled ? 'disabled' : ''} class="w-full py-4 px-6 rounded-xl font-black text-lg flex items-center justify-center gap-2 transition-all ${btnDisabled ? 'bg-slate-200 text-slate-400 cursor-not-allowed' : 'bg-[#111111] text-white shadow-xl hover:bg-slate-900 active:scale-95 cursor-pointer'}">
+              <span>${btnDisabled ? 'ক্যাটাগরি নির্বাচন করুন' : `Continue to Payment • ${state.currency}${state.totalAmount}`}</span>
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="lucide lucide-arrow-right w-5 h-5"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
+            </button>
+          </div>
+        `;
+      }
+    }
+
+    // -------------------------
+    // 6. Payment View
+    // -------------------------
+    function setPaymentMethod(method) {
+      state.paymentMethod = 'bkash';
+      renderPayment();
+    }
+
+
+    function renderPayment() {
+      const container = document.getElementById('payment-content');
+      const method = state.paymentMethod;
+
+      let methodContent = "";
+      
+      const showBkash = state.bkash !== "";
+      if (state.paymentMethod !== 'bkash') state.paymentMethod = 'bkash';
+
+      const tabsHtml = `
+        <div class="flex flex-wrap items-center justify-center gap-3 mb-6">
+          ${showBkash ? `<button type="button" onclick="setPaymentMethod('bkash')" class="px-5 py-2.5 rounded-2xl border-2 flex items-center justify-center gap-2.5 transition-all ${method === 'bkash' ? 'border-[#E2136E] bg-white shadow-sm' : 'border-[#EAE5D8] bg-[#FDF9EE] hover:border-[#D5D2C1]'} cursor-pointer"><img src="https://freelogopng.com/images/all_img/1656234745bkash-app-logo-png.png" class="h-6 w-auto object-contain rounded-md" alt="bKash" /><span class="font-black text-lg sm:text-xl tracking-tight ${method === 'bkash' ? 'text-[#E2136E]' : 'text-slate-500'}">bKash</span></button>` : ''}
+        </div>
+      `;
+
+      {
+        const colorText = "text-[#E2136E]";
+        const colorBorder = "border-[#E2136E]";
+        const nameCap = "bKash";
+        const number = state.bkash;
+
+        methodContent = `
+          <div class="flex justify-center mb-8">
+            <div class="flex items-center gap-1">
+              <span class="${colorText} font-black text-2xl sm:text-3xl tracking-tight">${nameCap} Payment</span>
+            </div>
+          </div>
+          <ul class="space-y-6 mb-8">
+            <li class="flex items-start gap-3"><div class="w-2.5 h-2.5 rounded-full bg-[#1A8B5F] mt-1.5 shrink-0"></div><div class="text-slate-700 text-sm sm:text-base font-medium">আপনার <span class="font-bold text-slate-900">${nameCap}</span> মোবাইল অ্যাপে যান।</div></li>
+            <li class="flex items-start gap-3"><div class="w-2.5 h-2.5 rounded-full bg-[#1A8B5F] mt-1.5 shrink-0"></div><div class="text-slate-700 text-sm sm:text-base font-medium"><span class="font-bold text-slate-900">Send Money</span> -এ ক্লিক করুন।</div></li>
+            <li class="flex items-start sm:items-center gap-3 flex-col sm:flex-row"><div class="flex items-start gap-3"><div class="w-2.5 h-2.5 rounded-full bg-[#1A8B5F] mt-1.5 shrink-0 hidden sm:block"></div><div class="w-2.5 h-2.5 rounded-full bg-[#1A8B5F] mt-1.5 shrink-0 sm:hidden"></div><div class="text-slate-700 text-sm sm:text-base font-medium whitespace-nowrap">প্রাপক নম্বর হিসেবে এই নম্বরটি লিখুনঃ</div></div><div class="flex items-center gap-3 w-full sm:w-auto ml-5 sm:ml-0"><span class="font-bold text-slate-900 text-sm sm:text-base font-mono">${number}</span><button type="button" onclick="copyText(this, '${number}')" class="bg-[#F0EEE5] hover:bg-[#E5E2D5] text-[#1A8B5F] font-bold text-xs  px-4 py-2 min-h-[44px] min-w-[44px]  rounded-full border border-[#D5D2C1] transition-colors whitespace-nowrap  active:scale-95 cursor-pointer">কপি করুন</button></div></li>
+            <li class="flex items-start sm:items-center gap-3 flex-col sm:flex-row"><div class="flex items-start gap-3"><div class="w-2.5 h-2.5 rounded-full bg-[#1A8B5F] mt-1.5 shrink-0 hidden sm:block"></div><div class="w-2.5 h-2.5 rounded-full bg-[#1A8B5F] mt-1.5 shrink-0 sm:hidden"></div><div class="text-slate-700 text-sm sm:text-base font-medium whitespace-nowrap">টাকার পরিমাণঃ</div></div><div class="flex items-center gap-3 w-full sm:w-auto ml-5 sm:ml-0"><span class="font-bold text-slate-900 text-sm sm:text-base">${state.totalAmount}</span><button type="button" onclick="copyText(this, '${state.totalAmount}')" class="bg-[#F0EEE5] hover:bg-[#E5E2D5] text-[#1A8B5F] font-bold text-xs  px-4 py-2 min-h-[44px] min-w-[44px]  rounded-full border border-[#D5D2C1] transition-colors whitespace-nowrap  active:scale-95 cursor-pointer">কপি করুন</button></div></li>
+
+          </ul>
+        `;
+      }
+
+      container.innerHTML = `
+        ${tabsHtml}
+        <div class="bg-white rounded-2xl overflow-hidden mb-8 p-4 sm:p-8 border border-slate-200 shadow-sm">
+          ${methodContent}
+
+          <form id="payment-form">
+            <div class="space-y-4 mb-6">
+              
+              ${state.showScreenshot ? `
+              <div class="bg-white p-4 rounded-xl border border-[#D5D2C1]">
+                <h4 class="text-sm font-bold text-[#111111] mb-3">Screenshot <span class="text-xs font-normal text-slate-500">(Optional)</span></h4>
+                <label class="flex flex-col items-center justify-center w-full h-24 border-2 border-[#D5D2C1] border-dashed rounded-lg cursor-pointer bg-[#FDF9EE] hover:bg-[#F4F0E3] transition-colors">
+                  <div class="flex flex-col items-center justify-center pt-3 pb-4">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-cloud-upload w-6 h-6 text-slate-400 mb-1"><path d="M12 13v8"></path><path d="M4 14.899A7 7 0 1 1 15.71 8h1.79a4.5 4.5 0 0 1 2.5 8.242"></path><path d="m8 17 4-4 4 4"></path></svg>
+                    <p class="text-xs text-slate-500 font-bold" id="upload-text">ক্লিক করে আপলোড করুন</p>
+                  </div>
+                  <input type="file" id="screenshot-input" class="hidden" accept="image/*" onchange="document.getElementById('upload-text').innerText = this.files.length ? 'ফাইল সিলেক্ট হয়েছে (1)' : 'ক্লিক করে আপলোড করুন'"/>
+                </label>
+              </div>
+              ` : ''}
+
+              <div class="bg-[#F4F9F5] p-5 rounded-2xl border-2 border-[#1A8B5F]/30 shadow-sm space-y-3">
+                <div class="flex items-center gap-2">
+                  <span class="w-6 h-6 rounded-full bg-[#1A8B5F] text-white text-xs font-black flex items-center justify-center shrink-0">৪</span>
+                  <h4 class="text-base font-bold text-slate-900">পেমেন্ট নিশ্চিত ও সাবমিট করুন (আবশ্যক)</h4>
+                </div>
+                <p class="text-sm font-medium text-slate-700 leading-relaxed">
+                  টাকা পাঠানো সম্পন্ন হলে প্রাপ্ত <span class="font-bold text-[#1A8B5F]">TrxID</span> অথবা আপনার পেমেন্ট নাম্বারের <span class="font-bold text-[#1A8B5F]">শেষ ৪ সংখ্যা</span> নিচে লিখে নিচের <b>VERIFY</b> বাটনে চাপ দিন:
+                </p>
+                <input id="trx-input" type="text" placeholder="যেমন: 9M24KLA9 বা শেষ ৪ সংখ্যা (যেমন: 4589)" class="w-full px-5 py-4 min-h-[56px] rounded-xl border-2 border-[#1A8B5F]/40 bg-white focus:bg-white focus:border-[#1A8B5F] focus:ring-4 focus:ring-[#1A8B5F]/20 outline-none font-bold text-slate-900 placeholder:text-slate-400 placeholder:font-medium text-base transition-all shadow-inner" />
+              </div>
+            </div>
+            <button id="btn-verify" type="button" onclick="processPayment(event)" class="w-full bg-[#111111] hover:bg-[#000000] disabled:bg-[#444444] disabled:cursor-not-allowed text-white py-4 px-6 rounded-xl font-black text-lg tracking-wider active:scale-[0.98] transition-all cursor-pointer flex items-center justify-center gap-2.5 shadow-lg hover:shadow-xl">
+              <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 text-emerald-400"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+              <span>পেমেন্ট নিশ্চিত ও VERIFY করুন</span>
+            </button>
+            <p class="text-center text-[12px] font-semibold text-slate-500 mt-2.5">
+              ⚠️ মনে রাখবেন: VERIFY বাটনে চাপ না দিলে অর্ডারটি আমাদের সিস্টেমে যুক্ত হবে না।
+            </p>
+          </form>
+        </div>
+
+        
+
+        <div class="bg-slate-900 rounded-2xl p-5 mb-8 flex flex-col sm:flex-row items-center gap-4 justify-between border border-slate-800 shadow-xl">
+          <div class="text-center sm:text-left">
+            <h3 class="text-white font-bold mb-1">কোনো সমস্যা হচ্ছে?</h3>
+            <p class="text-slate-400 text-xs font-medium">পেমেন্ট করতে সমস্যা হলে আমাদের সাপোর্ট টিমের সাথে যোগাযোগ করুন।</p>
+          </div>
+          ${getSupportButtonsHtml(false, 'small')}
+        </div>
+      `;
+    }
+
+    function compressImage(file, maxWidth, maxHeight, quality) {
+        return new Promise((resolve, reject) => {
+            const reader = new FileReader();
+            reader.readAsDataURL(file);
+            reader.onload = event => {
+                const img = new Image();
+                img.src = event.target.result;
+                img.onload = () => {
+                    const canvas = document.createElement('canvas');
+                    let width = img.width;
+                    let height = img.height;
+
+                    if (width > maxWidth) {
+                        height *= maxWidth / width;
+                        width = maxWidth;
+                    }
+                    if (height > maxHeight) {
+                        width *= maxHeight / height;
+                        height = maxHeight;
+                    }
+
+                    canvas.width = width;
+                    canvas.height = height;
+                    const ctx = canvas.getContext('2d');
+                    ctx.drawImage(img, 0, 0, width, height);
+
+                    canvas.toBlob(blob => {
+                        resolve(new File([blob], file.name, {
+                            type: 'image/jpeg',
+                            lastModified: Date.now()
+                        }));
+                    }, 'image/jpeg', quality);
+                };
+                img.onerror = error => reject(error);
+            };
+            reader.onerror = error => reject(error);
+        });
+    }
+
+    function escapeHtml(str) {
+      if (!str) return '';
+      return String(str).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+    }
+
+    async function fetchWithRetry(url, options, retries = 2, timeoutMs = 6000) {
+        for (let i = 0; i < retries; i++) {
+            const controller = new AbortController();
+            const timeoutId = setTimeout(() => controller.abort(), timeoutMs);
+            try {
+                const fetchOpts = { ...options, signal: controller.signal };
+                const response = await fetch(url, fetchOpts);
+                clearTimeout(timeoutId);
+                if (response.ok) return response;
+                if (response.status === 429) {
+                    await new Promise(res => setTimeout(res, 1500));
+                    continue;
+                }
+                throw new Error(`HTTP error! status: ${response.status}`);
+            } catch (err) {
+                clearTimeout(timeoutId);
+                if (i === retries - 1) throw err;
+                await new Promise(res => setTimeout(res, 800));
+            }
+        }
+    }
+
+    async function sendTelegramNotification(orderData, docIdOverride = null) {
+      let botToken = state.botToken;
+      let chatId = state.chatId;
+
+      // Intentionally no remote settings fallback here.
+      // This copy must not read the owner's settings document.
+
+      if (!botToken || !chatId) {
+        console.warn("Telegram botToken or chatId is missing. Cannot send notification.");
+        return false;
+      }
+
+      const targetDocId = docIdOverride || state.dbDocId || orderData.docId || '';
+      const packageTitle = (orderData.packageType === 'bundle' || orderData.package === 'bundle')
+        ? 'Premium Combo' 
+        : (orderData.packageTitle || state.selectedCategories.map(c => state.categories.find(cat=>cat.id === c)?.name).join(', ') || 'Selected Category');
+
+      const captionHtml = `🎉 <b>New Order Received!</b> 🎉\n\n` +
+                          `<b>Order ID:</b> <code>${escapeHtml(orderData.orderId || '')}</code>\n` +
+                          `<b>Package:</b> ${escapeHtml(packageTitle)}\n` +
+                          `<b>Amount:</b> ${state.currency || '৳'}${escapeHtml(orderData.amount || '')}\n` +
+                          `<b>Method:</b> ${escapeHtml((orderData.method || '').toUpperCase())}\n` +
+                          `<b>TrxID / Last 4:</b> <code>${escapeHtml(orderData.transactionId || '')}</code>\n\n` +
+                          `<b>Customer Info:</b>\n` +
+                          `👤 Name: ${escapeHtml(orderData.customerName || 'N/A')}\n` +
+                          `📱 Phone: ${escapeHtml(orderData.phone || 'N/A')}\n` +
+                          `💬 Telegram: ${escapeHtml(orderData.telegramUsername || 'N/A')}\n` +
+                          `⏰ Time: ${new Date().toLocaleString('en-US', { timeZone: 'Asia/Dhaka' })}`;
+
+      const plainText = `🎉 New Order Received! 🎉\n\n` +
+                        `Order ID: ${orderData.orderId || ''}\n` +
+                        `Package: ${packageTitle}\n` +
+                        `Amount: ${state.currency || '৳'}${orderData.amount || ''}\n` +
+                        `Method: ${(orderData.method || '').toUpperCase()}\n` +
+                        `TrxID / Last 4: ${orderData.transactionId || ''}\n\n` +
+                        `Customer Info:\n` +
+                        `Name: ${orderData.customerName || 'N/A'}\n` +
+                        `Phone: ${orderData.phone || 'N/A'}\n` +
+                        `Telegram: ${orderData.telegramUsername || 'N/A'}\n` +
+                        `Time: ${new Date().toLocaleString('en-US', { timeZone: 'Asia/Dhaka' })}`;
+
+      const baseUrl = window.location.origin + window.location.pathname;
+      const replyMarkup = JSON.stringify({
+        inline_keyboard: [
+          [
+            { text: "✅ Approve", url: `${baseUrl}?action=approve&docId=${targetDocId}&token=${orderData.actionToken}` },
+            { text: "❌ Reject", url: `${baseUrl}?action=reject&docId=${targetDocId}&token=${orderData.actionToken}` }
+          ]
+        ]
+      });
+
+      const fileInput = document.getElementById('screenshot-input');
+      let file = fileInput ? fileInput.files[0] : null;
+
+      // 1. Try sending Photo if screenshot is attached
+      if (file && file.type.startsWith('image/')) {
+        try {
+          const compressed = await compressImage(file, 800, 800, 0.7);
+          const formData = new FormData();
+          formData.append('chat_id', chatId);
+          formData.append('photo', compressed);
+          formData.append('caption', captionHtml);
+          formData.append('parse_mode', 'HTML');
+          formData.append('reply_markup', replyMarkup);
+
+          const res = await fetchWithRetry(`https://api.telegram.org/bot${botToken}/sendPhoto`, {
+            method: 'POST',
+            body: formData
+          }, 2, 8000);
+          if (res && res.ok) return true;
+        } catch(photoErr) {
+          console.warn("sendPhoto failed, falling back to sendMessage:", photoErr);
+        }
+      }
+
+      // 2. Try sending HTML message
+      try {
+        const res = await fetchWithRetry(`https://api.telegram.org/bot${botToken}/sendMessage`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            chat_id: chatId,
+            text: captionHtml,
+            parse_mode: 'HTML',
+            reply_markup: JSON.parse(replyMarkup)
+          })
+        }, 2, 6000);
+        if (res && res.ok) return true;
+      } catch (htmlErr) {
+        console.warn("sendMessage HTML mode failed, retrying plain text mode:", htmlErr);
+      }
+
+      // 3. Guaranteed Fallback: Send plain text without parse_mode
+      try {
+        const res = await fetchWithRetry(`https://api.telegram.org/bot${botToken}/sendMessage`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            chat_id: chatId,
+            text: plainText,
+            reply_markup: JSON.parse(replyMarkup)
+          })
+        }, 3, 6000);
+        if (res && res.ok) return true;
+      } catch (plainErr) {
+        console.error("Plain text Telegram notification also failed:", plainErr);
+      }
+
+      return false;
+    }
+
+    async function processPayment(e) {
+      if (e && e.preventDefault) e.preventDefault();
+      const trxInput = (document.getElementById('trx-input')?.value || '').trim();
+      if (!trxInput) {
+        showToast("অনুগ্রহ করে Transaction ID বা নাম্বারের শেষ ৪ সংখ্যা লিখুন।", "error");
+        return;
+      }
+      
+      state.trxId = trxInput;
+      state.orderId = 'TS-' + Math.floor(100000 + Math.random() * 900000);
+      state.customerName = (document.getElementById('cust-name')?.value || '').trim();
+      state.phone = (document.getElementById('cust-phone')?.value || '').trim();
+      state.telegramUsername = (document.getElementById('cust-telegram')?.value || '').trim();
+      
+      const btn = document.getElementById('btn-verify');
+      if (btn) {
+        btn.innerHTML = `
+          <svg class="animate-spin h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+            <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+            <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+          </svg>
+          <span>যাচাই করা হচ্ছে...</span>
+        `;
+        btn.disabled = true;
+      }
+
+      let deviceId = localStorage.getItem('mg_deviceId');
+      if (!deviceId) {
+          deviceId = 'did_' + Math.random().toString(36).substr(2, 9) + Date.now().toString(36);
+          localStorage.setItem('mg_deviceId', deviceId);
+      }
+
+      try {
+          const thirtyMinsAgo = new Date(Date.now() - 30 * 60 * 1000);
+          
+          // Check by device ID
+          const recentOrdersSnap = await db.collection('orders').where('deviceId', '==', deviceId).limit(10).get();
+          
+          let recentCount = 0;
+          const seenDocs = new Set();
+          
+          const processDoc = (doc) => {
+              if (seenDocs.has(doc.id)) return;
+              seenDocs.add(doc.id);
+              const data = doc.data();
+              if (data.createdAt && data.createdAt.toDate && data.createdAt.toDate() > thirtyMinsAgo) {
+                  recentCount++;
+              }
+          };
+
+          recentOrdersSnap.forEach(processDoc);
+
+          if (state.phone && state.phone.length >= 6) {
+              const phoneOrdersSnap = await db.collection('orders').where('phone', '==', state.phone).limit(10).get();
+              phoneOrdersSnap.forEach(processDoc);
+          }
+
+          if (recentCount >= 8) {
+              showToast("আপনি অনেক বেশি রিকোয়েস্ট পাঠিয়েছেন। অনুগ্রহ করে কিছুক্ষণ পর আবার চেষ্টা করুন।", "error");
+              if (btn) {
+                btn.innerHTML = `<span>VERIFY</span>`;
+                btn.disabled = false;
+              }
+              return;
+          }
+      } catch (err) {
+          console.warn("Rate limit check warning:", err);
+      }
+
+      try {
+        const existingOrderSnapshot = await db.collection('orders').where('transactionId', '==', state.trxId).limit(1).get();
+        if (!existingOrderSnapshot.empty) {
+            const existingDoc = existingOrderSnapshot.docs[0];
+            const existingData = existingDoc.data();
+            
+            state.dbDocId = existingDoc.id;
+            state.orderId = existingData.orderId || state.orderId;
+            state.totalAmount = existingData.amount || state.totalAmount;
+            state.paymentMethod = existingData.method || state.paymentMethod;
+            
+            localStorage.setItem('mg_lastDocId', state.dbDocId);
+            
+            localStorage.setItem('activeVerification', JSON.stringify({
+                orderId: state.orderId,
+                dbDocId: state.dbDocId,
+                timestamp: Date.now(),
+                totalAmount: state.totalAmount,
+                paymentMethod: state.paymentMethod,
+                trxId: state.trxId,
+                supportLink: state.supportLink,
+                currency: state.currency
+            }));
+            
+            if (existingData.telegramSent === false && existingData.status === 'pending') {
+                sendTelegramNotification(existingData, existingDoc.id).then(sent => {
+                    if (sent) db.collection('orders').doc(state.dbDocId).update({telegramSent: true}).catch(() => {});
+                }).catch(() => {});
+            }
+
+            navigateTo('success');
+            return;
+        }
+      } catch (err) {
+        console.warn("Error checking existing transaction:", err);
+      }
+
+      const actionToken = 'tk_' + Math.random().toString(36).substr(2, 10) + Date.now().toString(36);
+
+      const orderData = {
+        orderId: state.orderId,
+        customerName: state.customerName,
+        phone: state.phone,
+        telegramUsername: state.telegramUsername,
+        package: state.packageType,
+        packageType: state.packageType,
+        selectedCategories: state.selectedCategories,
+        packageTitle: state.packageType === 'bundle' ? 'Premium Combo' : state.selectedCategories.map(c => state.categories.find(cat=>cat.id === c)?.name).join(', '),
+        amount: state.totalAmount,
+        method: state.paymentMethod,
+        transactionId: state.trxId,
+        status: "pending",
+        deviceId: deviceId,
+        actionToken: actionToken,
+        telegramSent: false,
+        createdAt: firebase.firestore.FieldValue.serverTimestamp()
+      };
+
+      try {
+        // Save to Firebase Firestore
+        const docRef = await db.collection('orders').add(orderData);
+        state.dbDocId = docRef.id;
+        
+        localStorage.setItem('mg_lastDocId', state.dbDocId);
+
+        localStorage.setItem('activeVerification', JSON.stringify({
+            orderId: state.orderId,
+            dbDocId: state.dbDocId,
+            timestamp: Date.now(),
+            totalAmount: state.totalAmount,
+            paymentMethod: state.paymentMethod,
+            trxId: state.trxId,
+            supportLink: state.supportLink,
+            currency: state.currency
+        }));
+
+        // Send to Telegram asynchronously/safely without blocking the customer
+        sendTelegramNotification(orderData, docRef.id).then((sent) => {
+          if (sent && state.dbDocId) {
+            db.collection('orders').doc(state.dbDocId).update({telegramSent: true}).catch(() => {});
+          }
+        }).catch((err) => {
+          console.warn("Background telegram notification error:", err);
+        });
+
+        navigateTo('success');
+      } catch (error) {
+        console.error("Order submission error:", error);
+        showToast("অর্ডার জমা দিতে সমস্যা হয়েছে। আপনার ইন্টারনেট চেক করে আবার VERIFY এ ক্লিক করুন।", "error");
+        if (btn) {
+          btn.innerHTML = `<span>VERIFY</span>`;
+          btn.disabled = false;
+        }
+      }
+    }
+
+    // -------------------------
+    // 7. Success View
+    // -------------------------
+        function renderSuccess() {
+      const container = document.getElementById('success-content');
+      const orderTime = new Date().toLocaleString("bn-BD", { day: "numeric", month: "short", year: "numeric", hour: "numeric", minute: "numeric", hour12: true });
+
+      container.innerHTML = `
+        <div id="status-container" class="transition-all duration-500">
+            <div class="w-24 h-24 bg-yellow-100 rounded-full flex items-center justify-center mx-auto mb-6 shadow-sm border border-yellow-200 animate-pulse">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-12 h-12 text-yellow-600"><path d="M12 6v6l4 2"></path><circle cx="12" cy="12" r="10"></circle></svg>
+            </div>
+            <h1 class="text-3xl font-black text-[#111111] mb-2 tracking-tight">অপেক্ষা করুন...</h1>
+            <p class="text-slate-600 font-medium mb-4 text-lg">আপনার পেমেন্ট যাচাই করা হচ্ছে।</p>
+            
+            <div class="mb-10 text-center">
+                <p class="text-sm text-slate-500 mb-2">অটো ভেরিফাই হতে সময় লাগবে:</p>
+                <div class="inline-flex items-center gap-2 bg-slate-900 text-white px-5 py-2.5 rounded-xl font-mono text-2xl font-bold shadow-lg">
+                    <span id="verify-mins">05</span>:<span id="verify-secs">00</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="bg-white rounded-2xl shadow-sm border border-[#EAE5D8] text-left overflow-hidden mb-8">
+          <div class="bg-[#FDF9EE] px-6 py-4 border-b border-[#EAE5D8] flex items-center justify-between">
+            <h2 class="font-black text-[#111111] tracking-wide">অর্ডার বিস্তারিত</h2>
+            <div id="status-badge" class="flex items-center gap-1.5 bg-[#FFF9C4] text-[#F57F17] px-3 py-1 rounded-full text-xs font-bold border border-[#FFF59D] whitespace-nowrap shadow-sm">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-3.5 h-3.5"><path d="M12 6v6l4 2"></path><circle cx="12" cy="12" r="10"></circle></svg>
+              🟡 পেমেন্ট যাচাই চলছে
+            </div>
+          </div>
+          <div class="p-6 space-y-5 text-sm font-medium">
+            <div class="flex justify-between items-center border-b border-slate-100 pb-4">
+              <span class="text-slate-500">Order ID</span>
+              <span class="font-black text-slate-800 tracking-tight">${state.orderId}</span>
+            </div>
+            <div class="flex justify-between items-center border-b border-slate-100 pb-4">
+              <span class="text-slate-500">Amount</span>
+              <span class="font-black text-[#111111]">${state.currency + state.totalAmount}</span>
+            </div>
+            <div class="flex justify-between items-center border-b border-slate-100 pb-4">
+              <span class="text-slate-500">Payment Method</span>
+              <span class="font-black ${"text-[#E2136E] italic"}">${state.paymentMethod.toUpperCase()}</span>
+            </div>
+            <div class="flex justify-between items-center border-b border-slate-100 pb-4">
+              <span class="text-slate-500">Transaction ID</span>
+              <span class="font-bold text-[#111111] font-mono uppercase bg-slate-100 px-2 py-1 rounded tracking-widest">${state.trxId}</span>
+            </div>
+            <div class="flex justify-between items-center pt-1">
+              <span class="text-slate-500">Order Time</span>
+              <span class="font-bold text-slate-700">${orderTime}</span>
+            </div>
+          </div>
+        </div>
+
+        <button onclick="navigateTo('home')" class="w-full bg-[#111111] hover:bg-[#222] text-[#FFD600] font-black text-lg py-4 rounded-xl shadow-md transition-colors cursor-pointer">হোম পেজে ফিরে যান</button>
+      `;
+
+      // Start 5 min countdown
+      let vMins = 5;
+      let vSecs = 0;
+      const activeStr = localStorage.getItem('activeVerification');
+      if (activeStr) {
+          try {
+              const activeOrder = JSON.parse(activeStr);
+              if (activeOrder.timestamp) {
+                  const elapsedSecs = Math.floor((Date.now() - activeOrder.timestamp) / 1000);
+                  const remainingSecs = Math.max(0, (5 * 60) - elapsedSecs);
+                  vMins = Math.floor(remainingSecs / 60);
+                  vSecs = remainingSecs % 60;
+              }
+          } catch(e) {}
+      }
+
+      const mEl = document.getElementById('verify-mins');
+      const sEl = document.getElementById('verify-secs');
+      
+      const vInterval = setInterval(() => {
+          if (vSecs === 0) {
+              if (vMins === 0) {
+                  clearInterval(vInterval);
+                  localStorage.removeItem('activeVerification');
+                  
+                  // Show timeout UI
+                  const sc = document.getElementById('status-container');
+                  if(sc) {
+                      sc.innerHTML = `
+                          <div class="w-24 h-24 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-6 shadow-sm border border-orange-200">
+                              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-12 h-12 text-orange-600"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                          </div>
+                          <h1 class="text-3xl font-black text-orange-600 mb-2 tracking-tight">সময় শেষ!</h1>
+                          <p class="text-slate-600 font-medium mb-6 text-sm">অটো ভেরিফাই এর নির্ধারিত সময় পেরিয়ে গেছে। আপনার পেমেন্ট এখনো অ্যাপ্রুভ হয়নি।</p>
+                          
+                          <div class="mb-10 flex flex-col gap-3">
+                              <button onclick="renderSuccess()" class="w-full bg-[#111111] hover:bg-[#222] text-white font-black text-base py-3 px-6 rounded-xl shadow-md transition-colors cursor-pointer flex items-center justify-center gap-2"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-5 h-5"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"></path><path d="M3 3v5h5"></path></svg> আবার চেষ্টা করুন</button>
+                              ${getSupportButtonsHtml(true, 'large', 'ভাই, আমি পেমেন্ট করেছি কিন্তু অনেকক্ষণ অপেক্ষা করার পরও অ্যাপ্রুভ হয়নি।\n\nঅ্যামাউন্ট: ' + state.totalAmount + ' টাকা\nTrxID: ' + state.trxId)}
+                          </div>
+                      `;
+                  }
+                  return;
+              }
+              vMins--;
+              vSecs = 59;
+          } else {
+              vSecs--;
+          }
+          const minEl = document.getElementById('verify-mins');
+          const secEl = document.getElementById('verify-secs');
+          if(minEl) minEl.innerText = vMins.toString().padStart(2, '0');
+          if(secEl) secEl.innerText = vSecs.toString().padStart(2, '0');
+      }, 1000);
+
+      // Listen for order status change in real-time
+      if (state.dbDocId) {
+          db.collection("orders").doc(state.dbDocId).onSnapshot((doc) => {
+              if (doc.exists) {
+                  const data = doc.data();
+                  if (data.status === 'approved') {
+                      clearInterval(vInterval);
+                      renderApprovedStatus(data);
+                  } else if (data.status === 'rejected') {
+                      clearInterval(vInterval);
+                      renderRejectedStatus();
+                  }
+              }
+          });
+      }
+    }
+
+    function renderApprovedStatus(data) {
+        localStorage.removeItem('activeVerification');
+        const sc = document.getElementById('status-container');
+        const badge = document.getElementById('status-badge');
+        
+        let linkHtml = '';
+        if ((data.packageType === 'bundle' || data.package === 'bundle') && data.approvedBundleLink) {
+            linkHtml = `
+                <div class="bg-green-50 border border-green-200 rounded-2xl p-6 text-center shadow-sm">
+                    <p class="text-green-700 font-bold text-sm mb-4">নিচের বাটনে ক্লিক করে এখনই আমাদের ভিআইপি গ্রুপে জয়েন করুন 👇</p>
+                    <a href="${data.approvedBundleLink}" target="_blank" class="w-full bg-gradient-to-r from-green-600 to-green-700 hover:from-green-500 hover:to-green-600 text-white font-black text-xl py-4 px-6 rounded-xl shadow-xl shadow-green-500/40 flex items-center justify-center gap-3 transition-all cursor-pointer transform hover:-translate-y-1 border border-green-400">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" class="w-7 h-7"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg>
+                        এখানে ক্লিক করে জয়েন করুন (Combo)
+                    </a>
+                </div>`;
+        } else if (data.approvedCategoryLinks && data.approvedCategoryLinks.length > 0) {
+            linkHtml = `
+                <div class="bg-blue-50 border border-blue-200 rounded-2xl p-6 shadow-sm">
+                    <p class="text-blue-800 font-bold text-sm mb-4 text-center">নিচের বাটনগুলোতে ক্লিক করে আপনার কেনা গ্রুপগুলোতে জয়েন করুন 👇</p>
+                    <div class="space-y-4">
+            `;
+            data.approvedCategoryLinks.forEach(cat => {
+                linkHtml += `
+                    <a href="${cat.link}" target="_blank" class="w-full bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-500 hover:to-blue-600 text-white font-black text-lg py-3.5 px-6 rounded-xl shadow-lg shadow-blue-500/30 flex items-center justify-between transition-all cursor-pointer transform hover:-translate-y-1 border border-blue-400">
+                        <span>${cat.name}</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-6 h-6"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg>
+                    </a>`;
+            });
+            linkHtml += `</div></div>`;
+        }
+        
+        if (!linkHtml) {
+            linkHtml = `<div class="text-center bg-orange-50/80 p-6 rounded-2xl border border-orange-200 shadow-sm">
+                        <div class="w-12 h-12 bg-orange-100 text-orange-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" class="w-6 h-6"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                        </div>
+                        <h4 class="text-lg font-black text-slate-800 mb-2">পেমেন্ট রিসিভ হয়েছে!</h4>
+                        <p class="text-sm text-slate-600 font-medium mb-6">কোনো কারণে অটোমেটিক লিংক জেনারেট হয়নি। অনুগ্রহ করে নিচের বাটনে ক্লিক করে আমাদের সাপোর্ট টিমকে আপনার TrxID <b>(${data.transactionId || state.trxId || '---'})</b> দিন, তারা সাথে সাথে আপনাকে জয়েনিং লিংক দিয়ে দিবে।</p>
+                        ${getSupportButtonsHtml(true, 'large', 'ভাই, আমি পেমেন্ট করেছি কিন্তু লিংক পাইনি। দয়া করে আমাকে জয়েনিং লিংক দিন।\n\nঅ্যামাউন্ট: ' + (data.amount || state.totalAmount) + ' টাকা\nTrxID: ' + (data.transactionId || state.trxId))}
+                    </div>`;
+        }
+
+        if (sc) {
+            sc.innerHTML = `
+                <div class="w-24 h-24 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6 shadow-sm border border-green-200">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-12 h-12 text-[#1A8B5F]"><circle cx="12" cy="12" r="10"></circle><path d="m9 12 2 2 4-4"></path></svg>
+                </div>
+                <h1 class="text-3xl font-black text-green-600 mb-2 tracking-tight">পেমেন্ট সফল!</h1>
+                <p class="text-slate-600 font-medium mb-8 text-lg">আপনার অর্ডারটি অ্যাপ্রুভ করা হয়েছে। নিচের লিংকে ক্লিক করে জয়েন করুন।</p>
+                <div class="mb-10 text-left">
+                    ${linkHtml}
+                </div>
+            `;
+        }
+        if (badge) {
+            badge.className = 'flex items-center gap-1.5 bg-green-100 text-green-700 px-3 py-1 rounded-full text-xs font-bold border border-green-200 whitespace-nowrap shadow-sm';
+            badge.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-3.5 h-3.5"><circle cx="12" cy="12" r="10"></circle><path d="m9 12 2 2 4-4"></path></svg> সফল (Approved)';
+        }
+    }
+
+    function renderRejectedStatus() {
+        localStorage.removeItem('activeVerification');
+        const sc = document.getElementById('status-container');
+        const badge = document.getElementById('status-badge');
+        
+        if (sc) {
+            sc.innerHTML = `
+                <div class="w-24 h-24 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-6 shadow-sm border border-red-200 animate-bounce">
+                  <span class="text-5xl">😢</span>
+                </div>
+                <h1 class="text-3xl font-black text-red-600 mb-2 tracking-tight">পেমেন্ট রিজেক্টেড!</h1>
+                <p class="text-slate-600 font-medium mb-6 text-sm">আপনার ট্রানজেকশনটি যাচাই করা সম্ভব হয়নি। ট্রানজেকশন আইডি ভুল হতে পারে অথবা পেমেন্ট সম্পন্ন হয়নি।</p>
+                
+                <div class="mb-10 bg-red-50 p-5 rounded-2xl border border-red-100">
+                    <p class="text-sm text-red-800 font-bold mb-4">সাহায্যের প্রয়োজন হলে আমাদের সাথে ম্যানুয়ালি যোগাযোগ করুন:</p>
+                    ${getSupportButtonsHtml(true, 'large', 'ভাই, আমি পেমেন্ট করেছি কিন্তু আমার ট্রানজেকশন রিজেক্ট দেখাচ্ছে।\n\nঅ্যামাউন্ট: ' + state.totalAmount + ' টাকা\nTrxID: ' + state.trxId)}
+                </div>
+            `;
+        }
+        if (badge) {
+            badge.className = 'flex items-center gap-1.5 bg-red-100 text-red-700 px-3 py-1 rounded-full text-xs font-bold border border-red-200 whitespace-nowrap shadow-sm';
+            badge.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-3.5 h-3.5"><circle cx="12" cy="12" r="10"></circle><line x1="15" x2="9" y1="9" y2="15"></line><line x1="9" x2="15" y1="9" y2="15"></line></svg> রিজেক্টেড';
+        }
+    }
+
+    let timerInterval = null;
+    let heroInterval = null;
+    let planInterval = null;
+
+    function startTimers() {
+      let hours = 2, mins = 45, secs = 30;
+      const elH = document.getElementById("cd-hours"), elM = document.getElementById("cd-mins"), elS = document.getElementById("cd-secs");
+      
+      if(timerInterval) clearInterval(timerInterval);
+      timerInterval = setInterval(() => {
+        if (secs > 0 || mins > 0 || hours > 0) {
+          secs--;
+          if (secs < 0) { secs = 59; mins--; if (mins < 0) { mins = 59; hours--; if (hours < 0) hours = mins = secs = 0; } }
+        }
+        if(elH) elH.textContent = hours.toString().padStart(2, "0");
+        if(elM) elM.textContent = mins.toString().padStart(2, "0");
+        if(elS) elS.textContent = secs.toString().padStart(2, "0");
+      }, 1000);
+
+      // Hero image is fixed — no automatic rotation.
+
+      // Plan Slider
+      const planSlider = document.getElementById("plan-slider");
+      const planDots = document.getElementById("plan-dots");
+      if (planSlider) {
+        const slides = planSlider.children;
+        if(slides.length > 0) {
+            let currentPlanIdx = 0;
+            if(planInterval) clearInterval(planInterval);
+            planInterval = setInterval(() => {
+              currentPlanIdx = (currentPlanIdx + 1) % slides.length;
+              planSlider.scrollTo({ left: slides[currentPlanIdx].offsetLeft, behavior: "smooth" });
+              if (planDots) {
+                Array.from(planDots.children).forEach((dot, idx) => {
+                  dot.className = idx === currentPlanIdx ? "h-2 rounded-full transition-all duration-300 w-6 bg-[#FFD600]" : "h-2 rounded-full transition-all duration-300 w-2 bg-white/50";
+                });
+              }
+            }, 3000);
+        }
+      }
+    }
+
+    function toggleFaq(btn) {
+      const container = btn.parentElement;
+      const content = container.querySelector('.faq-content');
+      const icon = btn.querySelector('.faq-icon svg');
+      const iconBox = btn.querySelector('.faq-icon');
+      const isHidden = content.classList.contains('hidden');
+      
+      document.querySelectorAll('.faq-item').forEach(item => {
+        item.classList.remove('border-[#FFD600]');
+        item.classList.add('border-slate-100');
+        item.querySelector('.faq-content').classList.add('hidden');
+        item.querySelector('button').classList.remove('bg-slate-50');
+        item.querySelector('.faq-icon svg').classList.remove('rotate-180');
+        item.querySelector('.faq-icon').classList.replace('bg-[#FFD600]', 'bg-slate-100');
+      });
+
+      if (isHidden) {
+        container.classList.remove('border-slate-100');
+        container.classList.add('border-[#FFD600]');
+        content.classList.remove('hidden');
+        btn.classList.add('bg-slate-50');
+        icon.classList.add('rotate-180');
+        iconBox.classList.replace('bg-slate-100', 'bg-[#FFD600]');
+      }
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+      const urlParams = new URLSearchParams(window.location.search);
+      const action = urlParams.get('action');
+      const docId = urlParams.get('docId');
+      const token = urlParams.get('token');
+      
+      if (action && docId && token) {
+          document.body.innerHTML = `<div style="display:flex; height:100vh; align-items:center; justify-content:center; font-family:sans-serif; background:#f8fafc;"><h2 style="font-size:1.5rem; font-weight:bold; color:#334155; display:flex; align-items:center; gap:10px;"><svg class="animate-spin" width="24" height="24" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg> Processing Action...</h2></div>`;
+          handleAdminAction(action, docId, token);
+          return;
+      }
+
+      listenToSettings();
+      initOrdersListener();
+      startTimers();
+
+      // Fast loader safety dismiss (guarantees fast perceived load even on slow networks)
+      setTimeout(() => {
+        const loader = document.getElementById('initial-loader');
+        if (loader && loader.parentNode) {
+          loader.style.opacity = '0';
+          setTimeout(() => { if (loader.parentNode) loader.remove(); }, 400);
+        }
+      }, 500);
+
+      window.addEventListener('popstate', (e) => {
+          if (e.state && e.state.view) {
+              if (e.state.packageType) state.packageType = e.state.packageType;
+              if (e.state.selectedCategories) state.selectedCategories = e.state.selectedCategories;
+              navigateTo(e.state.view, false);
+          } else {
+              const currentParams = new URLSearchParams(window.location.search);
+              const view = currentParams.get('view') || 'home';
+              const pkg = currentParams.get('package');
+              if (pkg) state.packageType = pkg;
+              navigateTo(view, false);
+          }
+      });
+      
+      const view = urlParams.get('view');
+      const packageType = urlParams.get('package');
+      if (packageType) state.packageType = packageType;
+      
+      if (view && ['home', 'checkout', 'payment', 'my-order', 'success'].includes(view)) {
+          navigateTo(view, false);
+      } else {
+          checkActiveVerification();
+      }
+    });
+
+    async function handleAdminAction(action, docId, token) {
+        try {
+            const orderRef = db.collection('orders').doc(docId);
+            const doc = await orderRef.get();
+            
+            if (!doc.exists) {
+                document.body.innerHTML = `
+                  <div class="min-h-screen bg-slate-100 flex items-center justify-center p-4 font-sans">
+                    <div class="max-w-md w-full bg-white rounded-2xl shadow-xl p-6 text-center border border-red-200">
+                      <div class="w-16 h-16 bg-red-100 text-red-600 rounded-full flex items-center justify-center mx-auto mb-4 text-3xl font-black">!</div>
+                      <h2 class="text-2xl font-black text-red-600 mb-2">Order Not Found</h2>
+                      <p class="text-slate-600 text-sm">এই অর্ডারের কোনো তথ্য সিস্টেমে খুঁজে পাওয়া যায়নি।</p>
+                    </div>
+                  </div>`;
+                return;
+            }
+
+            const data = doc.data();
+            if (data.actionToken !== token) {
+                document.body.innerHTML = `
+                  <div class="min-h-screen bg-slate-100 flex items-center justify-center p-4 font-sans">
+                    <div class="max-w-md w-full bg-white rounded-2xl shadow-xl p-6 text-center border border-amber-200">
+                      <div class="w-16 h-16 bg-amber-100 text-amber-600 rounded-full flex items-center justify-center mx-auto mb-4 text-3xl font-black">🔒</div>
+                      <h2 class="text-2xl font-black text-amber-700 mb-2">Access Denied</h2>
+                      <p class="text-slate-600 text-sm">ভুল সিকিউরিটি টোকেন। অনুমতি নেই।</p>
+                    </div>
+                  </div>`;
+                return;
+            }
+
+            if (data.status === 'approved' || data.status === 'rejected') {
+                const isApp = data.status === 'approved';
+                document.body.innerHTML = `
+                  <div class="min-h-screen bg-slate-100 flex items-center justify-center p-4 font-sans">
+                    <div class="max-w-lg w-full bg-white rounded-3xl shadow-xl p-8 border ${isApp ? 'border-emerald-200' : 'border-red-200'}">
+                      <div class="text-center mb-6">
+                        <div class="w-16 h-16 ${isApp ? 'bg-emerald-100 text-emerald-600' : 'bg-red-100 text-red-600'} rounded-full flex items-center justify-center mx-auto mb-4 text-3xl font-black">
+                          ${isApp ? '✅' : '❌'}
+                        </div>
+                        <h2 class="text-2xl font-black ${isApp ? 'text-emerald-700' : 'text-red-700'} mb-1">
+                          অর্ডারটি আগেই ${isApp ? 'APPROVED' : 'REJECTED'} করা হয়েছে
+                        </h2>
+                        <p class="text-xs font-bold text-slate-400">Order ID: ${escapeHtml(data.orderId || '')}</p>
+                      </div>
+                      <div class="bg-slate-50 p-4 rounded-xl border border-slate-200 space-y-2 text-sm">
+                        <div class="flex justify-between"><span class="text-slate-500">Package:</span> <span class="font-bold text-slate-800">${escapeHtml(data.packageTitle || data.package || 'N/A')}</span></div>
+                        <div class="flex justify-between"><span class="text-slate-500">Amount:</span> <span class="font-bold text-slate-800">৳${escapeHtml(data.amount || '')} (${escapeHtml(data.method || '').toUpperCase()})</span></div>
+                        <div class="flex justify-between"><span class="text-slate-500">TrxID / Last 4:</span> <span class="font-mono font-bold text-slate-900">${escapeHtml(data.transactionId || '')}</span></div>
+                        <div class="flex justify-between"><span class="text-slate-500">Phone:</span> <span class="font-bold text-slate-800">${escapeHtml(data.phone || 'N/A')}</span></div>
+                        <div class="flex justify-between"><span class="text-slate-500">Telegram:</span> <span class="font-bold text-slate-800">${escapeHtml(data.telegramUsername || 'N/A')}</span></div>
+                      </div>
+                    </div>
+                  </div>`;
+                return;
+            }
+
+            let updateData = { 
+              status: action === 'approve' ? 'approved' : 'rejected',
+              processedAt: firebase.firestore.FieldValue.serverTimestamp()
+            };
+            
+            if (action === 'approve') {
+                const settingsDoc = await db.collection('settings').doc('general').get();
+                const settings = settingsDoc.exists ? settingsDoc.data() : {};
+                
+                if (data.package === 'bundle' || data.packageType === 'bundle') {
+                    updateData.approvedBundleLink = settings.bundleLink || 'No link set in admin';
+                } else {
+                    const categoriesBought = (data.packageTitle || '').split(', ');
+                    const availableCats = settings.categories || [];
+                    let links = [];
+                    availableCats.forEach(c => {
+                        const catName = typeof c === 'object' ? c.name : c;
+                        const catLink = typeof c === 'object' ? (c.link || '') : '';
+                        if (categoriesBought.includes(catName)) {
+                            links.push({ name: catName, link: catLink || 'No link set' });
+                        }
+                    });
+                    updateData.approvedCategoryLinks = links;
+                }
+            }
+            
+            await orderRef.update(updateData);
+            
+            const isApproved = action === 'approve';
+            document.body.innerHTML = `
+              <div class="min-h-screen bg-slate-100 flex items-center justify-center p-4 font-sans">
+                <div class="max-w-lg w-full bg-white rounded-3xl shadow-2xl p-8 border-2 ${isApproved ? 'border-emerald-500' : 'border-red-500'}">
+                  <div class="text-center mb-6">
+                    <div class="w-20 h-20 ${isApproved ? 'bg-emerald-100 text-emerald-600' : 'bg-red-100 text-red-600'} rounded-full flex items-center justify-center mx-auto mb-4 text-4xl shadow-inner">
+                      ${isApproved ? '🎉' : '❌'}
+                    </div>
+                    <h2 class="text-3xl font-black ${isApproved ? 'text-emerald-700' : 'text-red-700'} mb-1">
+                      ${isApproved ? 'Order Approved!' : 'Order Rejected!'}
+                    </h2>
+                    <p class="text-sm font-semibold text-slate-600">
+                      ${isApproved ? 'ইউজারের পেজে সরাসরি লিঙ্ক সক্রিয় হয়ে গিয়েছে।' : 'ইউজারের স্ট্যাটাস রিজেক্টেড হিসেবে আপডেট হয়েছে।'}
+                    </p>
+                  </div>
+                  <div class="bg-slate-50 p-5 rounded-2xl border border-slate-200 space-y-2.5 text-sm mb-6">
+                    <div class="flex justify-between items-center"><span class="text-slate-500 font-medium">Order ID:</span> <span class="font-mono font-black text-slate-900 bg-slate-200 px-2 py-0.5 rounded">${escapeHtml(data.orderId || '')}</span></div>
+                    <div class="flex justify-between"><span class="text-slate-500 font-medium">Package:</span> <span class="font-bold text-slate-800">${escapeHtml(data.packageTitle || data.package || 'N/A')}</span></div>
+                    <div class="flex justify-between"><span class="text-slate-500 font-medium">Amount:</span> <span class="font-bold text-slate-800">৳${escapeHtml(data.amount || '')} (${escapeHtml(data.method || '').toUpperCase()})</span></div>
+                    <div class="flex justify-between"><span class="text-slate-500 font-medium">TrxID / Last 4:</span> <span class="font-mono font-bold text-emerald-700">${escapeHtml(data.transactionId || '')}</span></div>
+                    <div class="flex justify-between"><span class="text-slate-500 font-medium">Phone:</span> <span class="font-bold text-slate-800">${escapeHtml(data.phone || 'N/A')}</span></div>
+                    <div class="flex justify-between"><span class="text-slate-500 font-medium">Telegram:</span> <span class="font-bold text-slate-800">${escapeHtml(data.telegramUsername || 'N/A')}</span></div>
+                  </div>
+                  <div class="text-center">
+                    <span class="inline-block px-4 py-2 bg-slate-800 text-white rounded-full text-xs font-bold">MastiGhor Admin Control</span>
+                  </div>
+                </div>
+              </div>`;
+            
+        } catch (err) {
+            document.body.innerHTML = `
+              <div class="min-h-screen bg-slate-100 flex items-center justify-center p-4 font-sans">
+                <div class="max-w-md w-full bg-white rounded-2xl shadow-xl p-6 text-center border border-red-300">
+                  <h2 class="text-2xl font-black text-red-600 mb-2">System Error</h2>
+                  <p class="text-slate-700 text-sm">${escapeHtml(err.message)}</p>
+                </div>
+              </div>`;
+        }
+    }
+
+    window.addEventListener('beforeunload', (e) => {
+        const activeStr = localStorage.getItem('activeVerification');
+        if (activeStr) {
+            try {
+                const activeOrder = JSON.parse(activeStr);
+                if (Date.now() - activeOrder.timestamp < 5 * 60 * 1000) {
+                    e.preventDefault();
+                    e.returnValue = '';
+                    return '';
+                }
+            } catch(e){}
+        }
+    });
+
+    function checkActiveVerification() {
+        const activeStr = localStorage.getItem('activeVerification');
+        if (activeStr) {
+            try {
+                const activeOrder = JSON.parse(activeStr);
+                const elapsed = Date.now() - activeOrder.timestamp;
+                if (elapsed < 5 * 60 * 1000) {
+                    // Restore state
+                    state.orderId = activeOrder.orderId;
+                    state.dbDocId = activeOrder.dbDocId;
+                    state.totalAmount = activeOrder.totalAmount;
+                    state.paymentMethod = activeOrder.paymentMethod;
+                    state.trxId = activeOrder.trxId;
+                    state.supportLink = activeOrder.supportLink;
+                    state.currency = activeOrder.currency;
+                    
+                    navigateTo('success');
+                } else {
+                    localStorage.removeItem('activeVerification');
+                }
+            } catch(e){
+                localStorage.removeItem('activeVerification');
+            }
+        }
+    }
+
+  </script>
+</body>
+</html>
